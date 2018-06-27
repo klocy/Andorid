@@ -62,7 +62,7 @@
             android:id="@+id/walletButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:onClick="onButton1Clicked"
             android:text="확인"
             android:textSize="15dp" />
