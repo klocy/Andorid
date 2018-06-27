@@ -5,12 +5,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapActivity">
+    tools:context=".ReservationActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="대여 가능한 자전거의 현재 위치입니다.\n원하는 자전거를 선택해주세요."
+        android:text="예약이 완료되었습니다.\n아래의 코드입력시 자전거 사용이 가능합니다."
         android:textSize="18dp"
         android:paddingTop="60dp"
         android:paddingBottom="60dp"
@@ -18,18 +18,37 @@
         android:paddingRight="15dp"
         android:layout_gravity="center"/>
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:visibility="visible" />
-
-    <Button
-        android:id="@+id/mapButton"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:text="예약확인"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2018년 6월 27일"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="11:30~13:40"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="지갑 주소"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/copyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
         android:onClick="onButton1Clicked"
-        android:text="확인"
+        android:text="COPY"
         android:textSize="15dp" />
+
 </LinearLayout>
