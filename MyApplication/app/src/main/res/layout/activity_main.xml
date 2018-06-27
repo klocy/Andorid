@@ -2,33 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="250dp"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="자전거 대여 시 결제에 사용할\n지갑 주소입니다."
-        android:textSize="20dp"
-        android:padding="60dp"
-        android:layout_gravity="center"/>
-
-    <EditText
-        android:id="@+id/walletInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textCapWords"
-        android:hint="지갑 주소"
-        android:textSize="18dp" />
+        android:layout_weight="1"
+        android:onClick="onButton1Clicked"
+        android:text="지갑 생성" />
 
     <Button
-        android:id="@+id/walletButton"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:onClick="onButton1Clicked"
-        android:text="생성 요청"
-        android:textSize="15dp" />
+        android:layout_weight="1"
+        android:onClick="onButton2Clicked"
+        android:text="자전거 대여" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:onClick="onButton3Clicked"
+        android:text="자전거 예약" />
 </LinearLayout>
