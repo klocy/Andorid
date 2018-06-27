@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+//3-2
 public class ReservationActivity extends AppCompatActivity{
 
     @Override

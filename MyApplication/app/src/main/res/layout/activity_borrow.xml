@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="대여 가능한 자전거의 현재 위치입니다.\n원하는 자전거를 선택해주세요."
+        android:text="발급 받은 코드를 입력시\n자전거 이용이 시작됩니다."
         android:textSize="18dp"
         android:paddingTop="60dp"
         android:paddingBottom="60dp"
@@ -18,18 +18,16 @@
         android:paddingRight="15dp"
         android:layout_gravity="center"/>
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
+    <EditText
+        android:id="@+id/number"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:visibility="visible" />
+        android:layout_height="wrap_content"
+        android:inputType="number" />
 
     <Button
-        android:id="@+id/mapButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:onClick="onButton1Clicked"
-        android:text="확인"
-        android:textSize="15dp" />
+        android:text="START"
+        android:onClick="borrowButton"/>
 </LinearLayout>
