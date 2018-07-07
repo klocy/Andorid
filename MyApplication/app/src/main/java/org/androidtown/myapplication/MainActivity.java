@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btn1 =(Button) findViewById(R.id.button1);
+        Button btn3 = (Button) findViewById(R.id.button3);
 
         btn1.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -23,15 +24,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
 
 
-    public void onButton2Clicked(View v) {
-        // 자전거 예약 액티비티
+        btn3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent  intent = new Intent(getApplicationContext(), BorrowActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 
-    public void onButton3Clicked(View v) {
-        // 자전거 대여 액티비티
-    }
 
 }

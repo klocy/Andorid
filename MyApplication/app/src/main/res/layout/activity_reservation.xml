@@ -16,7 +16,9 @@
         android:paddingBottom="60dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        />
 
     <TextView
         android:layout_width="wrap_content"

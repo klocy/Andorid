@@ -18,7 +18,24 @@
         </activity>
         <activity
             android:name=".WalletActivity"
-            android:label="WalletActivity" />
+            android:label="지갑주소입력" />
+        <activity
+            android:name=".Borrow2Activity"
+            android:label="대여/반납" />
+        <activity
+            android:name=".BorrowActivity"
+            android:label="대여/반납" />
+        <activity
+            android:name=".ExtendActivity"
+            android:label="연장" />
+        <activity
+            android:name=".PauseActivity"
+            android:label="일시정지" />
+        <activity
+            android:name=".ReturnActivity"
+            android:label="반납" />
+
+
     </application>
 
 </manifest>
