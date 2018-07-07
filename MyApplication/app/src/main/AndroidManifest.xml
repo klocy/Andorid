@@ -20,6 +20,12 @@
             android:name=".WalletActivity"
             android:label="지갑주소입력" />
         <activity
+            android:name=".TimeActivity"
+            android:label="자전거예약" />
+        <activity
+            android:name=".ConfirmActivity"
+            android:label="예약확인" />
+        <activity
             android:name=".Borrow2Activity"
             android:label="대여/반납" />
         <activity

@@ -19,13 +19,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:onClick="onButton2Clicked"
-        android:text="자전거 대여" />
+        android:text="자전거 예약" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="자전거 예약" />
+        android:text="자전거 대여" />
 </LinearLayout>

@@ -8,9 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+
 
 //3
-public class MapActivity extends Activity {
+public class MapActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,9 +23,34 @@ public class MapActivity extends Activity {
         setContentView(R.layout.activity_map);
     }
 
+        /*
+        mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(new OnMapReadyCallback(){
+            @Override
+            public void onMapReady(GoogleMap googleMap){
+                Log.d(TAG, "GoogleMap is ready");
+
+                map = googleMap;
+            }
+        });
+        try{
+            MapsInitializer.initialize(this);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+        Button btn = (Button) findViewById(R.id.mapButton);
+        btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                requestMyLocation();
+            }
+        })
+        */
 
     public void onButton1Clicked(View v) {
-        Toast.makeText(getApplicationContext(), "위치 확인", Toast.LENGTH_LONG).show();
-        Intent intent3 = new Intent(getApplicationContext(),TimeActivity.class);
+        Intent intent = new Intent(getApplicationContext(), TimeActivity.class);
+        startActivity(intent);
     }
 }
