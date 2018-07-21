@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Borrow2Activity extends AppCompatActivity {
 
@@ -13,9 +14,9 @@ public class Borrow2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_borrow2);
 
-        Button btn4 =(Button) findViewById(R.id.button4);//reutrn botton
-        Button btn5 = (Button) findViewById(R.id.button5); //pause botton
-        Button btn6 = (Button) findViewById(R.id.button6); //extend botton
+        ImageButton btn4 =(ImageButton) findViewById(R.id.button4);//reutrn botton
+        ImageButton btn5 = (ImageButton) findViewById(R.id.button5); //pause botton
+        ImageButton btn6 = (ImageButton) findViewById(R.id.button6); //extend botton
 
         btn4.setOnClickListener(new View.OnClickListener(){ //자전거 반납
             @Override

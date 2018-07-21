@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_background"
     android:orientation="vertical"
     tools:context=".ReturnActivity">
 
@@ -16,6 +17,9 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:lineSpacingExtra="15dip"
         android:text="자전거반납이 완료되었습니다." />
 
     <Button

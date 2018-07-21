@@ -6,12 +6,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_background"
     tools:context=".Borrow2Activity">
 
 
     <TextView
+        android:id="@+id/textview1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
@@ -19,10 +21,50 @@
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:paddingTop="60dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:lineSpacingExtra="15dp"
         android:text="발급 받은 코드를 입력시\n자전거 이용이 시작됩니다."
         android:textSize="18dp"
         android:textAlignment="center"
         />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"/>
+
+    <ImageButton
+        android:id="@+id/button4"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="false"
+        android:layout_marginBottom="150dp"
+        android:layout_marginLeft="20dp"
+        app:srcCompat="@drawable/btn_return" />
+
+    <ImageButton
+        android:id="@+id/button5"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/button4"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/btn_pause" />
+
+    <ImageButton
+        android:id="@+id/button6"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/button5"
+        android:layout_marginRight="20dp"
+        app:srcCompat="@drawable/btn_extend" />
 
     <TextView
         android:id="@+id/editText"
@@ -31,37 +73,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="218dp"
-        android:textSize="40dp"
-        android:text =" 12:00"/>
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="false"
-        android:layout_marginBottom="150dp"
-        android:layout_weight="1"
-        android:text="RETURN" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/button4"
-        android:layout_centerHorizontal="true"
-        android:layout_weight="1"
-        android:text="PAUSE" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/button5"
-        android:layout_weight="1"
-        android:text="EXTEND" />
-
+        android:text=" 12:00"
+        android:textSize="40dp" />
 
 
 </RelativeLayout>

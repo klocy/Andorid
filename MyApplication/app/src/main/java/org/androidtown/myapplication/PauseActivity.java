@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class PauseActivity extends AppCompatActivity {
 
@@ -15,7 +16,7 @@ public class PauseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pause);
 
 
-        Button btn = findViewById(R.id.restart);
+        ImageButton btn = (ImageButton) findViewById(R.id.restart);
 
         btn.setOnClickListener(new View.OnClickListener(){ //자전거 반납
             @Override

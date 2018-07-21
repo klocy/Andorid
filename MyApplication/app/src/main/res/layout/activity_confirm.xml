@@ -1,67 +1,78 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ScrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TimeActivity"
+    tools:context=".ConfirmActivity"
+    android:orientation="vertical"
     android:background="@drawable/bg_background"
     >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="예약이 완료되었습니다.\n아래의 코드입력 시 자전거 사용이 가능합니다."
-            android:textSize="18dp"
-            android:padding="60dp"
-            android:layout_gravity="center"/>
+            android:text="예약이 완료되었습니다.\n아래의 코드입력시 자전거 사용이 가능합니다."
+            android:textSize="17dp"
+            android:paddingTop="60dp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:lineSpacingExtra="15dip"
+            android:paddingBottom="60dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="예약 날짜"
-            android:textSize="18dp" />
-
-        <View
-            android:id="@+id/divider"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider" />
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="예약 시간"
-            android:textSize="18dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="예약 날짜"
+                android:textSize="18dp" />
 
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider" />
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
 
-        <EditText
-            android:id="@+id/walletInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textCapWords"
-            android:hint="예약 번호"
-            android:textSize="18dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="예약 시간"
+                android:textSize="18dp" />
 
-        <Button
-            android:id="@+id/walletButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:onClick="onButton1Clicked"
-            android:text="복사"
-            android:textSize="15dp" />
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
 
-    </LinearLayout>
-</ScrollView>
+            <EditText
+                android:id="@+id/walletInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="예약 번호"
+                android:inputType="textCapWords"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/walletButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:onClick="onButton1Clicked"
+                android:text="복사"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+</LinearLayout>

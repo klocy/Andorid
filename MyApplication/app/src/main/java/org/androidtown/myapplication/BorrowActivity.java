@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 //4
@@ -16,7 +17,7 @@ public class BorrowActivity extends Activity {
         setContentView(R.layout.activity_borrow);
 
 
-        Button btn = findViewById(R.id.borrow);
+        ImageButton btn = (ImageButton) findViewById(R.id.borrow);
 
         btn.setOnClickListener(new View.OnClickListener(){ //자전거 반납
             @Override
