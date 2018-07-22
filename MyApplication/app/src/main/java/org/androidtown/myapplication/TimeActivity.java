@@ -45,53 +45,53 @@ public class TimeActivity extends AppCompatActivity {
 
         shour_up.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                hourUP(shour);
+                setTime(shour,1);
             }
         });
 
         shour_down.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                hourDown(shour);
+                setTime(shour,-1);
             }
         });
 
 
         sminute_up.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                minuteUP(sminute,shour);
+                setTime(sminute,5);
             }
         });
 
 
         sminute_down.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                minuteDown(sminute,shour);
+                setTime(sminute,-5);
             }
         });
 
         ehour_up.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                hourUP(ehour);
+                setTime(ehour,1);
             }
         });
 
 
         ehour_down.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                hourDown(ehour);
+                setTime(ehour,-1);
             }
         });
 
 
         eminute_up.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                minuteUP(eminute,ehour);
+                setTime(eminute,5);
             }
         });
 
         eminute_down.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                minuteDown(eminute,ehour);
+                setTime(eminute,-5);
             }
         });
 
@@ -105,55 +105,21 @@ public class TimeActivity extends AppCompatActivity {
         });
     }
 
-    protected void hourUP(TextView text){
-        int num = Integer.valueOf((String)text.getText());
 
-        num = (num+1)%24;
 
-        text.setText(String.valueOf(num));
+    protected  void setTime(TextView text, int num){
+        int time = Integer.valueOf((String)text.getText());
+        int x=60;
 
-    }
+        if(num==1||num==-1) x= 24;
 
-    protected void hourDown(TextView text){
-        int num = Integer.valueOf((String)text.getText());
+        time = (time+num) % x;
 
-        num = (num-1)%24;
+        if(time<0) time+=x;
 
-        if(num<0) num+=24;
-
-        text.setText(String.valueOf(num));
+        text.setText(String.valueOf(time));
 
     }
-
-    protected void minuteUP(TextView text, TextView hour){
-        int num = Integer.valueOf((String)text.getText());
-
-        if(num==55) hourUP(hour); //필요한가?
-
-        num = (num+5)%60;
-
-        text.setText(String.valueOf(num));
-
-    }
-
-
-    protected void minuteDown(TextView text, TextView hour){
-        int num = Integer.valueOf((String)text.getText());
-
-
-        num = (num-5)%60;
-
-        if(num<0) {
-            num+=60;
-            hourDown(hour);//필요한가?
-        }
-
-        text.setText(String.valueOf(num));
-
-    }
-
-
-
 
     /*public void onButton1Clicked(View v) {
         //Toast.makeText(getApplicationContext(), "시간 입력", Toast.LENGTH_LONG).show();
