@@ -4,8 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
+import static java.lang.StrictMath.abs;
 
 //3-1
 public class TimeActivity extends AppCompatActivity {
@@ -14,9 +20,142 @@ public class TimeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time);
+
+        //시작시간 버튼
+        ImageButton shour_up = (ImageButton) findViewById(R.id.hourUp);
+        ImageButton shour_down = (ImageButton) findViewById(R.id.hourDown);
+        ImageButton sminute_up = (ImageButton) findViewById(R.id.minuteUp);
+        ImageButton sminute_down = (ImageButton) findViewById(R.id.minuteDown);
+
+        //종료시간 버튼
+        ImageButton ehour_up = (ImageButton) findViewById(R.id.hourUp2);
+        ImageButton ehour_down = (ImageButton) findViewById(R.id.hourDown2);
+        ImageButton eminute_up = (ImageButton) findViewById(R.id.minuteUp2);
+        ImageButton eminute_down = (ImageButton) findViewById(R.id.minuteDown2);
+
+        ImageButton btn_ok = (ImageButton) findViewById(R.id.time_ok);
+
+        //시작시간
+        final TextView shour = (TextView) findViewById(R.id.start_hour);
+        final TextView sminute = (TextView) findViewById(R.id.start_minute);
+
+        //종료시간
+        final TextView ehour = (TextView) findViewById(R.id.end_hour);
+        final TextView eminute = (TextView) findViewById(R.id.end_minute);
+
+        shour_up.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                hourUP(shour);
+            }
+        });
+
+        shour_down.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                hourDown(shour);
+            }
+        });
+
+
+        sminute_up.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                minuteUP(sminute,shour);
+            }
+        });
+
+
+        sminute_down.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                minuteDown(sminute,shour);
+            }
+        });
+
+        ehour_up.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                hourUP(ehour);
+            }
+        });
+
+
+        ehour_down.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                hourDown(ehour);
+            }
+        });
+
+
+        eminute_up.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                minuteUP(eminute,ehour);
+            }
+        });
+
+        eminute_down.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                minuteDown(eminute,ehour);
+            }
+        });
+
+        btn_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getApplicationContext(), ConfirmActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    public void onButton1Clicked(View v) {
+    protected void hourUP(TextView text){
+        int num = Integer.valueOf((String)text.getText());
+
+        num = (num+1)%24;
+
+        text.setText(String.valueOf(num));
+
+    }
+
+    protected void hourDown(TextView text){
+        int num = Integer.valueOf((String)text.getText());
+
+        num = (num-1)%24;
+
+        if(num<0) num+=24;
+
+        text.setText(String.valueOf(num));
+
+    }
+
+    protected void minuteUP(TextView text, TextView hour){
+        int num = Integer.valueOf((String)text.getText());
+
+        if(num==55) hourUP(hour); //필요한가?
+
+        num = (num+5)%60;
+
+        text.setText(String.valueOf(num));
+
+    }
+
+
+    protected void minuteDown(TextView text, TextView hour){
+        int num = Integer.valueOf((String)text.getText());
+
+
+        num = (num-5)%60;
+
+        if(num<0) {
+            num+=60;
+            hourDown(hour);//필요한가?
+        }
+
+        text.setText(String.valueOf(num));
+
+    }
+
+
+
+
+    /*public void onButton1Clicked(View v) {
         //Toast.makeText(getApplicationContext(), "시간 입력", Toast.LENGTH_LONG).show();
 
         TimePicker tp1 = (TimePicker) findViewById(R.id.timepicker);
@@ -38,5 +177,5 @@ public class TimeActivity extends AppCompatActivity {
         intent.putExtra("end_min",end_m);
 
         startActivity(intent);
-    }
+    }*/
 }
