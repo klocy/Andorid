@@ -23,18 +23,118 @@
         android:textAlignment="center"
         />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
         android:orientation="vertical">
 
-        <TimePicker
-            android:id="@+id/timepicker"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/extend_time"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:calendarViewShown="false"
-            android:timePickerMode="spinner" />
+            android:padding="10dp"
+            android:text="연장 시간"
+            android:textSize="18dp" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentStart="false"
+            android:layout_below="@+id/extend_time"
+            android:background="#000000" />
+
+        <TextView
+            android:id="@+id/extend_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_alignEnd="@+id/extend_time"
+            android:layout_below="@+id/extend_time"
+            android:layout_marginLeft="30dp"
+            android:gravity="center"
+            android:text="10"
+            android:textSize="50dp"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/hourUp_e"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_below="@+id/extend_time"
+            android:layout_toEndOf="@+id/extend_time"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_up" />
+
+        <ImageButton
+            android:id="@+id/hourDown_e"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_alignLeft="@+id/hourUp_e"
+            android:layout_alignParentBottom="false"
+            android:layout_below="@+id/hourUp_e"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_down" />
+
+
+        <TextView
+            android:id="@+id/hour"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/extend_time"
+            android:layout_toEndOf="@+id/hourUp_e"
+            android:gravity="center"
+            android:text="시"
+            android:textSize="50dp" />
+
+
+        <TextView
+            android:id="@+id/extend_minute"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="false"
+            android:layout_below="@id/divider"
+            android:layout_toLeftOf="@+id/minuteUp_e"
+            android:gravity="center"
+            android:text="10"
+            android:textSize="50dp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/minuteUp_e"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_below="@+id/divider"
+            android:layout_toStartOf="@+id/minute"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_up" />
+
+        <ImageButton
+            android:id="@+id/minuteDown_e"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_alignLeft="@+id/minuteUp_e"
+            android:layout_alignParentBottom="false"
+            android:layout_below="@+id/minuteUp_e"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_down" />
+
+
+        <TextView
+            android:id="@+id/minute"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/divider"
+            android:layout_marginEnd="30dp"
+            android:gravity="center"
+            android:text="분"
+            android:textSize="50dp" />
 
 
         <ImageButton
@@ -42,10 +142,12 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/extend_hour"
             android:layout_gravity="end"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/btn_ok" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

@@ -107,7 +107,7 @@ public class TimeActivity extends AppCompatActivity {
 
 
 
-    protected  void setTime(TextView text, int num){
+    public  void setTime(TextView text, int num){
         int time = Integer.valueOf((String)text.getText());
         int x=60;
 
