@@ -1,8 +1,11 @@
 package org.androidtown.myapplication;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -11,6 +14,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class ShowBorrowActivity extends AppCompatActivity {
+    final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +51,43 @@ public class ShowBorrowActivity extends AppCompatActivity {
 
         btn3.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v){
-                Toast.makeText(getApplicationContext(), "예약을 삭제했습니다.", Toast.LENGTH_LONG).show();
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.button_cancel:
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+
+                        // 제목셋팅
+                        alertDialogBuilder.setTitle("예약 삭제");
+
+                        // AlertDialog 셋팅
+                        alertDialogBuilder
+                                .setMessage("예약을 삭제하시겠습니까?")
+                                .setCancelable(false)
+                                .setPositiveButton("예",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(
+                                                    DialogInterface dialog, int id) {
+                                                ShowBorrowActivity.this.finish();
+                                            }
+                                        })
+                                .setNegativeButton("아니오",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(
+                                                    DialogInterface dialog, int id) { // 다이얼로그를 취소
+                                                dialog.cancel();
+                                            }
+                                        });
+
+                        // 다이얼로그 생성
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+
+                        // 다이얼로그 보여주기
+                        alertDialog.show();
+                        break;
+
+                    default:
+                        break;
+                }
             }
         });
     }
