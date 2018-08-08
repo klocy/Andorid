@@ -1,19 +1,21 @@
 package org.androidtown.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
-public class WalletActivity extends AppCompatActivity {
+public class ShowBorrowActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wallet);
+        setContentView(R.layout.activity_showborrow);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -24,10 +26,31 @@ public class WalletActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
         //actionBar.setHomeAsUpIndicator(R.drawable.ic_back); //뒤로가기 버튼을 본인이 만든 아이콘으로 하기 위해 필요
 
-    }
+        Button btn1 = (Button) findViewById(R.id.button_copy);
+        Button btn2 = (Button) findViewById(R.id.button_change);
+        Button btn3 = (Button) findViewById(R.id.button_cancel);
 
-    public void onButton2Clicked(View v) {
-        Toast.makeText(getApplicationContext(), "지갑 계정을 생성 완료했습니다.", Toast.LENGTH_LONG).show();
+        btn1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Toast.makeText(getApplicationContext(), "예약 번호를 복사했습니다.", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(), TimeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Toast.makeText(getApplicationContext(), "예약을 삭제했습니다.", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override

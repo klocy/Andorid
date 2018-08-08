@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         ImageButton btn1 = (ImageButton) findViewById(R.id.create);
         ImageButton btn2 = (ImageButton) findViewById(R.id.book);
         ImageButton btn3 = (ImageButton) findViewById(R.id.rental);
@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent  intent = new Intent(getApplicationContext(), WalletActivity.class);
+                Intent  intent = new Intent(getApplicationContext(), TestWalletActivity.class);
+                //
                 startActivity(intent);
             }
         });
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent  intent = new Intent(getApplicationContext(), TimeActivity.class);
+                Intent  intent = new Intent(getApplicationContext(), TestBorrowActivity.class);
                 startActivity(intent);
             }
         });
