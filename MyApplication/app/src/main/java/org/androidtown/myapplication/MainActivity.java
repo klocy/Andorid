@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton btn2 = (ImageButton) findViewById(R.id.book);
         ImageButton btn3 = (ImageButton) findViewById(R.id.rental);
 
-        btn1.setOnClickListener(new View.OnClickListener(){
+        btn1.setOnClickListener(new View.OnClickListener(){ //계정생성
             @Override
             public void onClick(View v){
                 Intent  intent = new Intent(getApplicationContext(), TestWalletActivity.class);
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn2.setOnClickListener(new View.OnClickListener(){
+        btn2.setOnClickListener(new View.OnClickListener(){ //예약
             @Override
             public void onClick(View v){
                 Intent  intent = new Intent(getApplicationContext(), TestBorrowActivity.class);
@@ -37,11 +37,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn3.setOnClickListener(new View.OnClickListener(){
+        btn3.setOnClickListener(new View.OnClickListener(){ //대여
+
             @Override
             public void onClick(View v){
-                Intent  intent = new Intent(getApplicationContext(), BorrowActivity.class);
-                startActivity(intent);
+
+                //이미 대여중이면 조건문을 변경하여 borrow2로 이동하게 수정
+                if(true) {
+                    Intent intent = new Intent(getApplicationContext(), BorrowActivity.class);
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(getApplicationContext(), Borrow2Activity.class);
+                    startActivity(intent);
+                }
             }
         });
 

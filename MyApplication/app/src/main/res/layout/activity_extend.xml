@@ -8,26 +8,6 @@
     android:background="@drawable/bg_background"
     tools:context=".ExtendActivity">
 
-    <android.support.v7.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#70AD47"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="예약 연장"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:id="@+id/toolbar_title"
-            android:textSize="20sp"/>
-
-    </android.support.v7.widget.Toolbar>
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,11 +30,23 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/minute"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/extend_time"
+            android:layout_toEndOf="@+id/minuteUp_e"
+            android:gravity="center"
+            android:text="분"
+            android:textColor="#000000"
+            android:textSize="50dp" />
+
+        <TextView
             android:id="@+id/extend_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="연장 시간"
+            android:textColor="#000000"
             android:textSize="18dp" />
 
         <View
@@ -74,14 +66,15 @@
             android:layout_marginLeft="30dp"
             android:gravity="center"
             android:text="10"
+            android:textColor="#000000"
             android:textSize="50dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/hourUp_e"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_below="@+id/extend_time"
             android:layout_toEndOf="@+id/extend_time"
             android:scaleType="fitCenter"
@@ -89,9 +82,9 @@
 
         <ImageButton
             android:id="@+id/hourDown_e"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_alignLeft="@+id/hourUp_e"
             android:layout_alignParentBottom="false"
             android:layout_below="@+id/hourUp_e"
@@ -107,6 +100,7 @@
             android:layout_toEndOf="@+id/hourUp_e"
             android:gravity="center"
             android:text="시"
+            android:textColor="#000000"
             android:textSize="50dp" />
 
 
@@ -114,47 +108,33 @@
             android:id="@+id/extend_minute"
             android:layout_width="60dp"
             android:layout_height="80dp"
-            android:layout_alignParentBottom="false"
-            android:layout_below="@id/divider"
-            android:layout_toLeftOf="@+id/minuteUp_e"
+            android:layout_below="@+id/extend_time"
+            android:layout_toStartOf="@+id/extend"
             android:gravity="center"
             android:text="10"
+            android:textColor="#000000"
             android:textSize="50dp"
             android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/minuteUp_e"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_below="@+id/divider"
-            android:layout_toStartOf="@+id/minute"
+            android:layout_below="@+id/extend_time"
+            android:layout_toEndOf="@+id/extend_minute"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/ic_up" />
 
         <ImageButton
             android:id="@+id/minuteDown_e"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_alignLeft="@+id/minuteUp_e"
-            android:layout_alignParentBottom="false"
-            android:layout_below="@+id/minuteUp_e"
+            android:layout_alignBottom="@+id/extend_hour"
+            android:layout_toEndOf="@+id/extend_minute"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/ic_down" />
-
-
-        <TextView
-            android:id="@+id/minute"
-            android:layout_width="60dp"
-            android:layout_height="80dp"
-            android:layout_alignParentBottom="false"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/divider"
-            android:layout_marginEnd="30dp"
-            android:gravity="center"
-            android:text="분"
-            android:textSize="50dp" />
 
 
         <ImageButton

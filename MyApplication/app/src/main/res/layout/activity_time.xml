@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#70AD47"
+        android:background="?attr/colorPrimaryDark"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
@@ -71,6 +71,7 @@
             android:layout_marginLeft="30dp"
             android:gravity="center"
             android:text="10"
+            android:textColor="#000000"
             android:textSize="50dp"
             android:textStyle="bold"/>
 
@@ -104,6 +105,7 @@
             android:layout_toEndOf="@+id/hourUp"
             android:gravity="center"
             android:text="시"
+            android:textColor="#000000"
             android:textSize="50dp" />
 
 
@@ -111,11 +113,11 @@
             android:id="@+id/start_minute"
             android:layout_width="60dp"
             android:layout_height="80dp"
-            android:layout_alignParentBottom="false"
-            android:layout_below="@id/divider"
-            android:layout_toLeftOf="@+id/minuteUp"
+            android:layout_below="@+id/start_time"
+            android:layout_toStartOf="@+id/minuteUp"
             android:gravity="center"
             android:text="10"
+            android:textColor="#000000"
             android:textSize="50dp"
             android:textStyle="bold" />
 
@@ -151,6 +153,7 @@
             android:layout_marginEnd="30dp"
             android:gravity="center"
             android:text="분"
+            android:textColor="#000000"
             android:textSize="50dp" />
 
         <TextView
@@ -174,13 +177,14 @@
 
         <TextView
             android:id="@+id/end_hour"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="80dp"
             android:layout_alignEnd="@+id/end_time"
             android:layout_below="@+id/end_time"
             android:layout_marginLeft="30dp"
             android:gravity="center"
             android:text="10"
+            android:textColor="#000000"
             android:textSize="50dp"
             android:textStyle="bold" />
 
@@ -214,6 +218,7 @@
             android:layout_toEndOf="@+id/hourUp"
             android:gravity="center"
             android:text="시"
+            android:textColor="#000000"
             android:textSize="50dp" />
 
 
@@ -221,11 +226,11 @@
             android:id="@+id/end_minute"
             android:layout_width="60dp"
             android:layout_height="80dp"
-            android:layout_alignParentBottom="false"
-            android:layout_below="@id/divider2"
-            android:layout_toLeftOf="@+id/minuteUp2"
+            android:layout_alignStart="@+id/start_minute"
+            android:layout_below="@+id/end_time"
             android:gravity="center"
             android:text="10"
+            android:textColor="#000000"
             android:textSize="50dp"
             android:textStyle="bold" />
 
@@ -255,12 +260,11 @@
             android:id="@+id/minute2"
             android:layout_width="60dp"
             android:layout_height="80dp"
-            android:layout_alignParentBottom="false"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/divider2"
-            android:layout_marginEnd="30dp"
+            android:layout_below="@+id/end_time"
+            android:layout_toEndOf="@+id/minuteUp"
             android:gravity="center"
             android:text="분"
+            android:textColor="#000000"
             android:textSize="50dp" />
 
         <ImageButton

@@ -1,7 +1,10 @@
 package org.androidtown.myapplication;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,10 +17,19 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.Calendar;
+
 import static java.lang.StrictMath.abs;
 
 //3-1
 public class TimeActivity extends AppCompatActivity {
+
+    Calendar cal= Calendar.getInstance();
+    int hour = cal.get(Calendar.HOUR_OF_DAY);//현재 시
+    int minute = cal.get(Calendar.MINUTE);//현재 분
+
+    int time[] = {hour,minute,hour,minute}; //시작시, 시작분, 종료시, 종료분
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,59 +63,65 @@ public class TimeActivity extends AppCompatActivity {
         final TextView shour = (TextView) findViewById(R.id.start_hour);
         final TextView sminute = (TextView) findViewById(R.id.start_minute);
 
+        shour.setText(String.valueOf(hour));
+        sminute.setText(String.valueOf(minute));
+
         //종료시간
         final TextView ehour = (TextView) findViewById(R.id.end_hour);
         final TextView eminute = (TextView) findViewById(R.id.end_minute);
 
+        ehour.setText(String.valueOf(hour));
+        eminute.setText(String.valueOf(minute));
+
         shour_up.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                setTime(shour,1);
+                time[0]= setTime(shour,1);
             }
         });
 
         shour_down.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                setTime(shour,-1);
+                time[0]= setTime(shour,-1);
             }
         });
 
 
         sminute_up.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                setTime(sminute,5);
+                time[1]=setTime(sminute,5);
             }
         });
 
 
         sminute_down.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                setTime(sminute,-5);
+                time[1]= setTime(sminute,-5);
             }
         });
 
         ehour_up.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                setTime(ehour,1);
+                time[2]= setTime(ehour,1);
             }
         });
 
 
         ehour_down.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                setTime(ehour,-1);
+               time[2]= setTime(ehour,-1);
             }
         });
 
 
         eminute_up.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                setTime(eminute,5);
+               time[3]= setTime(eminute,5);
             }
         });
 
         eminute_down.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                setTime(eminute,-5);
+               time[3]= setTime(eminute,-5);
             }
         });
 
@@ -111,17 +129,29 @@ public class TimeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+            if(errorCheck(time))  {
                 Intent intent = new Intent(getApplicationContext(), ConfirmActivity.class);
+                intent.putExtra("time",time);
+                //intent.putExtra("cal",cal);
+                SharedPreferences reserveTIme = getSharedPreferences("reserveTime", MODE_PRIVATE);
+                SharedPreferences.Editor edi = reserveTIme.edit();
+                edi.putInt("hour",time[2]);
+                edi.putInt("minute",time[3]);
+                edi.commit();
+
                 startActivity(intent);
+            }
+
             }
         });
     }
 
 
 
-    public  void setTime(TextView text, int num){
+    public  int setTime(TextView text, int num){
         int time = Integer.valueOf((String)text.getText());
         int x=60;
+        String t;
 
         if(num==1||num==-1) x= 24;
 
@@ -129,10 +159,52 @@ public class TimeActivity extends AppCompatActivity {
 
         if(time<0) time+=x;
 
-        text.setText(String.valueOf(time));
+        t = String.valueOf(time);
 
+        if(time <10) t = "0"+t;
+
+        text.setText(t);
+
+        return time;
     }
 
+
+
+    public  boolean errorCheck(int num[]) {
+        double eth = 10000; //eth 잔고, db에서 가져오기
+        double price = 0.01; // 단위 : eth / 5분
+        double totalP = 0; //총요금
+        int stime = num[0] * 60 + num[1];
+        int etime = num[2] * 60 + num[3];
+        int usingTime = etime - stime;
+        boolean check = false;
+
+
+        totalP = (usingTime / 5.0) * price;
+
+
+        if (usingTime <= 0) {
+            Toast.makeText(getApplicationContext(), "잘못된 예약시간입니다.", Toast.LENGTH_LONG).show();
+
+        } else if (totalP > eth) {
+            //잔액부족팝업, 충전화면 전환여부
+            AlertDialog.Builder bid = new AlertDialog.Builder(this);
+            bid.setTitle("잔액 부족");
+            bid.setMessage("사용자 계정에 이더가 부족합니다.\n마이닝 하시겠습니까?");
+            bid.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    //충전화면으로 전환하는 인텐트
+                }
+            });
+            bid.setNegativeButton("No", null);
+            bid.show();
+
+        } else check = true;
+
+
+        return check;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
