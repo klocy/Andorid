@@ -20,9 +20,8 @@ import java.util.Calendar;
 //3-1
 public class ConfirmActivity extends AppCompatActivity {
 
-    TextView confrimeT ;
-    TextView date;
-    TextView bn;
+    TextView confrimeT, date, bn ;
+    Button change, cancel;
     Calendar cal=Calendar.getInstance();
     protected String bookingCode;
 
@@ -31,43 +30,61 @@ public class ConfirmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm);
 
+        //----------툴바-----------
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
         actionBar.setDisplayShowTitleEnabled(false);
+        //-----------------------
 
         Intent intent = getIntent();
-        int time[] = intent.getIntArrayExtra("time");
-
-        date= findViewById(R.id.date);
-        confrimeT = findViewById(R.id.confrimeTime);
-        bn =findViewById(R.id.bookingNum);
-
-        bookingCode = Create_BookingCode(time);
-
-        bn.setText(bookingCode);
-
-        confrimeT.setText(time[0]+" : "+time[1]+" ~ "+time[2]+" : "+time[3]); //수정하기 00
-        date.setText(cal.get(Calendar.YEAR)+"년 "+cal.get(Calendar.MONTH)+"월 "+cal.get(Calendar.DATE)+"일") ;
-
-
+        int time[] = intent.getIntArrayExtra("time"); //서버에서 시간가져오는것으로변경
         int start_h = intent.getIntExtra("start_hour",0);
         int start_m = intent.getIntExtra("start_min",0);
         int end_h = intent.getIntExtra("end_hour",0);
         int end_m = intent.getIntExtra("end_min",0);
 
-        Button btn = (Button)findViewById(R.id.homeButton);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+
+        //TextView
+        date= findViewById(R.id.date);
+        confrimeT = findViewById(R.id.confrimeTime);
+        bn =findViewById(R.id.bookingNum);
+
+        //Button
+        change = findViewById(R.id.change_booking);
+        cancel = findViewById(R.id.cancel_booking);
+
+
+        bookingCode = Create_BookingCode(time); //예약번호생성
+        bn.setText(bookingCode);
+
+        confrimeT.setText(time[0]+" : "+time[1]+" ~ "+time[2]+" : "+time[3]); //수정하기 00
+        date.setText(cal.get(Calendar.YEAR)+"년 "+cal.get(Calendar.MONTH)+"월 "+cal.get(Calendar.DATE)+"일") ;
+
+        change.setOnClickListener(new View.OnClickListener(){
+            public void  onClick(View v){
+
+            }
+        });
+
+
+        cancel.setOnClickListener(new View.OnClickListener(){
+            public void  onClick(View v){
+
+            }
+        });
+
+        //Button btn = (Button)findViewById(R.id.homeButton);
+        /*btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
 

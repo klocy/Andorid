@@ -51,7 +51,9 @@
         <activity
             android:name=".ReturnActivity"
             android:label="반납" />
-
+        <activity
+            android:name=".ShowBorrowActivity"
+            android:label="예약정보"/>
 
     </application>
 

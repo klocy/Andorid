@@ -54,7 +54,7 @@
 
             <TextView
                 android:id="@+id/date"
-                android:layout_width="334dp"
+                android:layout_width="247dp"
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
@@ -80,7 +80,7 @@
 
             <TextView
                 android:id="@+id/confrimeTime"
-                android:layout_width="334dp"
+                android:layout_width="247dp"
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/date"
@@ -108,12 +108,12 @@
 
             <TextView
                 android:id="@+id/bookingNum"
-                android:layout_width="match_parent"
+                android:layout_width="296dp"
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/confrimeTime"
-                android:text="예약 번호"
                 android:paddingTop="5dp"
+                android:text="예약 번호"
                 android:textColor="#000000"
                 android:textSize="25dp" />
 
@@ -122,20 +122,41 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
+                android:layout_below="@+id/confrimeTime"
                 android:layout_gravity="end"
                 android:onClick="copy"
-                android:layout_below="@+id/bookingNum"
                 android:text="복사"
                 android:textSize="15dp" />
 
-        </RelativeLayout>
-
             <Button
-                android:id="@+id/homeButton"
+                android:id="@+id/change_booking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
                 android:layout_gravity="end"
-                android:text="메인으로 돌아가기"
+                android:text="예약 변경"
                 android:textSize="15dp" />
-        </LinearLayout>
+
+            <Button
+                android:id="@+id/cancel_booking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/date"
+                android:layout_gravity="end"
+                android:text="예약 취소"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/bookingNum"
+                android:text="지도" />
+
+        </RelativeLayout>
+
+</LinearLayout>

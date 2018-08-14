@@ -1,11 +1,14 @@
 package org.androidtown.myapplication;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -48,13 +51,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){ //자전거 예약
 
-                booking = !booking; //서버에 요청해서 예약내역 확인
+                booking=false; //서버에 요청해서 예약내역 확인하는것으로 변경
+
 
                 if(booking){ //예약내역이 있는경우
-                Intent  intent = new Intent(getApplicationContext(), TimeActivity.class); //날짜선택화면엑티비티로 변경하기
-                startActivity(intent);
+                    Intent  intent = new Intent(getApplicationContext(), ConfirmActivity.class);
+                    startActivity(intent);
                 }else { //예약내역이 없는 경우
-                    Intent intent = new Intent(getApplicationContext(),ShowBorrowActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),TimeActivity.class);//날짜선택화면엑티비티로 변경하기
                     startActivity(intent);
                 }
             }
