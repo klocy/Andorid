@@ -1,5 +1,6 @@
 package org.androidtown.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +29,9 @@ public class WalletActivity extends AppCompatActivity {
 
     public void onButton2Clicked(View v) {
         Toast.makeText(getApplicationContext(), "지갑 계정을 생성 완료했습니다.", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getApplicationContext(),ShowWalletActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override

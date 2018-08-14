@@ -16,9 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".TestWalletActivity"
-            android:label="계정생성여부" /> // 확인용
+        // 확인용
         <activity
             android:name=".WalletActivity"
             android:label="지갑주소입력" />
@@ -31,12 +29,7 @@
         <activity
             android:name=".BorrowHistoryActivity"
             android:label="예약내역" />
-        <activity
-            android:name=".TestBorrowActivity"
-            android:label="예약여부" /> // 확인용
-        <activity
-            android:name=".ShowBorrowActivity"
-            android:label="예약확인" />
+        // 확인용
         <activity
             android:name=".TimeActivity"
             android:label="자전거예약시간" />
