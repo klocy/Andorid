@@ -20,6 +20,7 @@ import org.w3c.dom.Text;
 import java.util.Calendar;
 
 import static java.lang.StrictMath.abs;
+import static java.lang.StrictMath.min;
 
 //3-1
 public class TimeActivity extends AppCompatActivity {
@@ -27,6 +28,7 @@ public class TimeActivity extends AppCompatActivity {
     Calendar cal= Calendar.getInstance();
     int hour = cal.get(Calendar.HOUR_OF_DAY);//현재 시
     int minute = cal.get(Calendar.MINUTE);//현재 분
+    String h= String.valueOf(hour),m= String.valueOf(minute);
 
     int time[] = {hour,minute,hour,minute}; //시작시, 시작분, 종료시, 종료분
 
@@ -36,14 +38,16 @@ public class TimeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time);
 
+        //--------------툴바------------
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
         //actionBar.setHomeAsUpIndicator(R.drawable.ic_back); //뒤로가기 버튼을 본인이 만든 아이콘으로 하기 위해 필요
+        //------------------------------
+
 
         //시작시간 버튼
         ImageButton shour_up = (ImageButton) findViewById(R.id.hourUp);
@@ -59,26 +63,30 @@ public class TimeActivity extends AppCompatActivity {
 
         ImageButton btn_ok = (ImageButton) findViewById(R.id.time_ok);
 
+
+        if(hour<10) h= 0+h;
+        if(minute<10) m = 0+h;
+
         //시작시간
         final TextView shour = (TextView) findViewById(R.id.start_hour);
         final TextView sminute = (TextView) findViewById(R.id.start_minute);
 
-        shour.setText(String.valueOf(hour));
-        sminute.setText(String.valueOf(minute));
+        shour.setText(h);
+        sminute.setText(m);
 
         //종료시간
         final TextView ehour = (TextView) findViewById(R.id.end_hour);
         final TextView eminute = (TextView) findViewById(R.id.end_minute);
 
-        ehour.setText(String.valueOf(hour));
-        eminute.setText(String.valueOf(minute));
+        ehour.setText(h);
+        eminute.setText(m);
+
 
         shour_up.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 time[0]= setTime(shour,1);
             }
         });
-
         shour_down.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 time[0]= setTime(shour,-1);
@@ -91,8 +99,6 @@ public class TimeActivity extends AppCompatActivity {
                 time[1]=setTime(sminute,5);
             }
         });
-
-
         sminute_down.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 time[1]= setTime(sminute,-5);
@@ -104,42 +110,44 @@ public class TimeActivity extends AppCompatActivity {
                 time[2]= setTime(ehour,1);
             }
         });
-
-
         ehour_down.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                time[2]= setTime(ehour,-1);
             }
         });
 
-
         eminute_up.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                time[3]= setTime(eminute,5);
             }
         });
-
         eminute_down.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                time[3]= setTime(eminute,-5);
             }
         });
 
+
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             if(errorCheck(time))  {
+
+                //서버에 시간저장하는것으로변경
+
+                //나중에 삭제
                 Intent intent = new Intent(getApplicationContext(), ConfirmActivity.class);
                 intent.putExtra("time",time);
-                //intent.putExtra("cal",cal);
-                SharedPreferences reserveTIme = getSharedPreferences("reserveTime", MODE_PRIVATE);
+                SharedPreferences reserveTIme = getSharedPreferences("Temp", MODE_PRIVATE);
                 SharedPreferences.Editor edi = reserveTIme.edit();
                 edi.putInt("hour",time[2]);
                 edi.putInt("minute",time[3]);
                 edi.commit();
+                //----------
 
                 startActivity(intent);
+                finish();
             }
 
             }
@@ -171,7 +179,7 @@ public class TimeActivity extends AppCompatActivity {
 
 
     public  boolean errorCheck(int num[]) {
-        double eth = 10000; //eth 잔고, db에서 가져오기
+        double eth = 100000; //eth 잔고, 서버에서 가져오기
         double price = 0.01; // 단위 : eth / 5분
         double totalP = 0; //총요금
         int stime = num[0] * 60 + num[1];
@@ -194,7 +202,8 @@ public class TimeActivity extends AppCompatActivity {
             bid.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    //충전화면으로 전환하는 인텐트
+                    Intent intent = new Intent(getApplicationContext(),ChargeActivity.class);
+                    startActivity(intent);
                 }
             });
             bid.setNegativeButton("No", null);

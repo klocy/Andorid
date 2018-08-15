@@ -26,25 +26,30 @@ public class Borrow2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_borrow2);
 
+        //----------툴바------------
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
         actionBar.setDisplayShowTitleEnabled(false);
         //actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
         //actionBar.setHomeAsUpIndicator(R.drawable.ic_back); //뒤로가기 버튼을 본인이 만든 아이콘으로 하기 위해 필요
+        //------------------------
+
 
         ImageButton btn4 =(ImageButton) findViewById(R.id.button4);//reutrn botton
         ImageButton btn5 = (ImageButton) findViewById(R.id.button5); //pause botton
         ImageButton btn6 = (ImageButton) findViewById(R.id.button6); //extend botton
 
-        SharedPreferences pref = getSharedPreferences("reserveTime", Activity.MODE_PRIVATE);
+
+        //서버에서 예약시간 가져오기
+        SharedPreferences pref = getSharedPreferences("Temp", Activity.MODE_PRIVATE);
         end_hour = pref.getInt("hour", 0);
         end_minute = pref.getInt("minute", 0);
+
+
         h = String.valueOf(end_hour);
         m = String.valueOf(end_minute);
-
         if (end_hour < 10) h = 0 + h;
         if (end_minute < 10) m = 0 + m;
 
@@ -63,6 +68,8 @@ public class Borrow2Activity extends AppCompatActivity {
         btn5.setOnClickListener(new View.OnClickListener() { //일시정지
             @Override
             public void onClick(View v) { //일시정지
+
+
                 Intent intent = new Intent(getApplicationContext(), PauseActivity.class);
                 startActivity(intent);
             }
@@ -81,17 +88,18 @@ public class Borrow2Activity extends AppCompatActivity {
 
     }
 
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         if(requestCode==Return_Time){
-        if(resultCode==RESULT_OK){
-            int etime[] = data.getIntArrayExtra("extend_time");
-            end_hour = etime[2];
-            end_minute = etime[3];
-            h = String.valueOf(end_hour);
-            m = String.valueOf(end_minute);
+            if(resultCode==RESULT_OK){
+                int etime[] = data.getIntArrayExtra("extend_time");
+                end_hour = etime[2];
+                end_minute = etime[3];
+                h = String.valueOf(end_hour);
+                m = String.valueOf(end_minute);
 
-            if (end_hour < 10) h = 0 + h;
-            if (end_minute < 10) m = 0 + m;
+             if (end_hour < 10) h = 0 + h;
+             if (end_minute < 10) m = 0 + m;
 
             endT.setText(h + " : " + m);
 

@@ -42,7 +42,7 @@ public class ExtendActivity extends AppCompatActivity {
         final TextView eHour = (TextView) findViewById(R.id.extend_hour);
         final TextView eMinute = (TextView) findViewById(R.id.extend_minute);
 
-        SharedPreferences pref = getSharedPreferences("reserveTime", Activity.MODE_PRIVATE);
+        SharedPreferences pref = getSharedPreferences("Temp", Activity.MODE_PRIVATE);
        time[0]= pref.getInt("hour",0);
         time[1]=pref.getInt("hour",0);
         time[2] = pref.getInt("hour",0);

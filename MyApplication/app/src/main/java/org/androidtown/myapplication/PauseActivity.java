@@ -23,6 +23,7 @@ public class PauseActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), Borrow2Activity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

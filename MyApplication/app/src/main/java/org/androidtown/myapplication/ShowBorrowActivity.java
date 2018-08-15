@@ -44,7 +44,7 @@ public class ShowBorrowActivity extends AppCompatActivity {
         bookingCode = ""; //서버에서 받아오기
 
         //---나중에 지우기----
-        SharedPreferences pref = getSharedPreferences("bookingCode", Activity.MODE_PRIVATE);
+        SharedPreferences pref = getSharedPreferences("Temp", Activity.MODE_PRIVATE);
         bookingCode = pref.getString("code", null);
         //-------------------
 

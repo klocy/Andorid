@@ -42,8 +42,8 @@ public class BorrowActivity extends AppCompatActivity {
         ImageButton btn = (ImageButton) findViewById(R.id.borrow);
 
         //서버에서 가져오는걸로 변경하기
-        SharedPreferences pref = getSharedPreferences("bookingCode", Activity.MODE_PRIVATE);
-        bookingCode = pref.getString("code","asdmsaldmaslfrmqwl");
+        SharedPreferences pref = getSharedPreferences("Temp", Activity.MODE_PRIVATE);
+        bookingCode = pref.getString("code","");
 
         btn.setOnClickListener(new View.OnClickListener(){ //자전거 반납
             @Override
