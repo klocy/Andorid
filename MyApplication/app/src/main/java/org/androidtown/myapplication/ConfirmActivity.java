@@ -2,6 +2,7 @@ package org.androidtown.myapplication;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +12,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
@@ -19,9 +21,9 @@ import java.util.Calendar;
 
 //3-1
 public class ConfirmActivity extends AppCompatActivity {
-
+    final Context context = this;
     TextView confrimeT, date, bn ;
-    Button change, cancel;
+    ImageButton change, cancel;
     Calendar cal=Calendar.getInstance();
     protected String bookingCode;
 
@@ -66,12 +68,41 @@ public class ConfirmActivity extends AppCompatActivity {
         change.setOnClickListener(new View.OnClickListener(){
             public void  onClick(View v){
 
+                AlertDialog.Builder toMap = new AlertDialog.Builder(context);
+                toMap.setTitle("예약 변경");
+                toMap.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //예약내역삭제요청
+                        Intent main = new Intent(getApplicationContext(),TimeActivity.class); //MapActivity로변경하기
+                        startActivity(main);
+                        finish();
+                    }
+                });
+                toMap.setNegativeButton("No",null);
+                toMap.setMessage("기존 예약내역이 삭제됩니다.\n예약을 변경하시겠습니까?");
+                toMap.show();
+
             }
         });
 
 
         cancel.setOnClickListener(new View.OnClickListener(){
             public void  onClick(View v){
+                AlertDialog.Builder toMain = new AlertDialog.Builder(context);
+                toMain.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //예약내역 삭제요청
+                        Intent main = new Intent(getApplicationContext(),MainActivity.class);
+                        startActivity(main);
+                        finish();
+                    }
+                });
+                toMain.setNegativeButton("No",null);
+                toMain.setTitle("예약 삭제");
+                toMain.setMessage("예약이 삭제됩니다.\n삭제하시겠습니까?");
+                toMain.show();
 
             }
         });

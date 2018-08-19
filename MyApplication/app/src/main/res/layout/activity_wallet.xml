@@ -62,7 +62,6 @@
             android:layout_height="100dp"
             android:layout_gravity="end"
             style="?android:attr/borderlessButtonStyle"
-            android:onClick="onButton2Clicked"
             android:scaleType="center"
             app:srcCompat="@drawable/btn_create" />
     </LinearLayout>

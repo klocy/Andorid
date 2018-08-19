@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ public class WalletActivity extends AppCompatActivity {
     protected int c_wallet = 0;
     String wallet ;
     EditText input ;
+    ImageButton ok;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,30 +36,33 @@ public class WalletActivity extends AppCompatActivity {
 
         input = findViewById(R.id.walletInput);
 
-    }
+        ok= (ImageButton)findViewById(R.id.walletButton);
 
-    public void onButton2Clicked(View v) {
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        wallet = input.getText().toString(); //사용자의 입력값
+                wallet = input.getText().toString(); //사용자의 입력값
 
-        //서버에 입력값을 보내 오류확인
-        c_wallet= 0;
+                //서버에 입력값을 보내 오류확인
+                c_wallet= 0;
 
-        switch (c_wallet){
-            case 0 : //계정생성
-                Toast.makeText(getApplicationContext(), "지갑 계정을 생성 완료했습니다.", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getApplicationContext(),ShowWalletActivity.class);
-                startActivity(intent);
-                finish();
-                break;
-            case 1 : //등록된지갑
-                Toast.makeText(getApplicationContext(), "이미 등록된 지갑입니다.", Toast.LENGTH_LONG).show();
-                break;
-            case 2 :  //존재하지 않은 지갑
-                Toast.makeText(getApplicationContext(), "유효하지 않은 지갑입니다.", Toast.LENGTH_LONG).show();
-                break;
-        }
-
+                switch (c_wallet){
+                    case 0 : //계정생성
+                        Toast.makeText(getApplicationContext(), "지갑 계정을 생성 완료했습니다.", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(getApplicationContext(),ShowWalletActivity.class);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    case 1 : //등록된지갑
+                        Toast.makeText(getApplicationContext(), "이미 등록된 지갑입니다.", Toast.LENGTH_LONG).show();
+                        break;
+                    case 2 :  //존재하지 않은 지갑
+                        Toast.makeText(getApplicationContext(), "유효하지 않은 지갑입니다.", Toast.LENGTH_LONG).show();
+                        break;
+                }
+            }
+        });
     }
 
     @Override
