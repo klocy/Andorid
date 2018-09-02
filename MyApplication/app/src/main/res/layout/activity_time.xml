@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimaryDark"
+        android:background="#00000000"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
@@ -22,6 +22,7 @@
             android:text="예약 시간 설정"
             android:textStyle="bold"
             android:layout_gravity="center"
+            android:textColor="#FFFFFF"
             android:id="@+id/toolbar_title"
             android:textSize="20sp"/>
 
@@ -51,6 +52,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
             android:text="시작 시간"
             android:textSize="18dp" />
 
@@ -73,13 +76,13 @@
             android:text="10"
             android:textColor="#000000"
             android:textSize="50dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/hourUp"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_below="@+id/start_time"
             android:layout_toEndOf="@+id/start_time"
             android:scaleType="fitCenter"
@@ -87,9 +90,9 @@
 
         <ImageButton
             android:id="@+id/hourDown"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_alignLeft="@+id/hourUp"
             android:layout_alignParentBottom="false"
             android:layout_below="@+id/hourUp"
@@ -123,9 +126,9 @@
 
         <ImageButton
             android:id="@+id/minuteUp"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_below="@+id/divider"
             android:layout_toStartOf="@+id/minute"
             android:scaleType="fitCenter"
@@ -133,9 +136,9 @@
 
         <ImageButton
             android:id="@+id/minuteDown"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_alignLeft="@+id/minuteUp"
             android:layout_alignParentBottom="false"
             android:layout_below="@+id/minuteUp"
@@ -145,7 +148,7 @@
 
         <TextView
             android:id="@+id/minute"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="80dp"
             android:layout_alignParentBottom="false"
             android:layout_alignParentEnd="true"
@@ -162,6 +165,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/hourDown"
             android:layout_marginTop="20dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
             android:padding="10dp"
             android:text="종료 시간"
             android:textSize="18dp" />
@@ -190,9 +195,9 @@
 
         <ImageButton
             android:id="@+id/hourUp2"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_below="@+id/end_time"
             android:layout_toEndOf="@+id/end_time"
             android:scaleType="fitCenter"
@@ -200,9 +205,9 @@
 
         <ImageButton
             android:id="@+id/hourDown2"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_alignLeft="@+id/hourUp2"
             android:layout_alignParentBottom="false"
             android:layout_below="@+id/hourUp2"
@@ -236,9 +241,9 @@
 
         <ImageButton
             android:id="@+id/minuteUp2"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_below="@+id/divider2"
             android:layout_toStartOf="@+id/minute2"
             android:scaleType="fitCenter"
@@ -246,9 +251,9 @@
 
         <ImageButton
             android:id="@+id/minuteDown2"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_alignLeft="@+id/minuteUp2"
             android:layout_alignParentBottom="false"
             android:layout_below="@+id/minuteUp2"
@@ -269,9 +274,9 @@
 
         <ImageButton
             android:id="@+id/time_ok"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="130dp"
             android:layout_height="50dp"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_alignParentBottom="false"
             android:layout_alignParentEnd="true"
             android:layout_below="@id/minuteDown2"
