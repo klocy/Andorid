@@ -40,250 +40,569 @@
         android:lineSpacingExtra="15dip"
         android:layout_gravity="center"/>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-
-        <TextView
-            android:id="@+id/start_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:text="시작 시간"
-            android:textSize="18dp" />
-
-        <View
-            android:id="@+id/divider"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentStart="false"
-            android:layout_below="@+id/start_time"
-            android:background="#000000" />
-
-        <TextView
-            android:id="@+id/start_hour"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_alignEnd="@+id/start_time"
-            android:layout_below="@+id/start_time"
-            android:layout_marginLeft="30dp"
-            android:gravity="center"
-            android:text="10"
-            android:textColor="#000000"
-            android:textSize="50dp"
-            android:textStyle="bold" />
-
-        <ImageButton
-            android:id="@+id/hourUp"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/start_time"
-            android:layout_toEndOf="@+id/start_time"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_up" />
-
-        <ImageButton
-            android:id="@+id/hourDown"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignLeft="@+id/hourUp"
-            android:layout_alignParentBottom="false"
-            android:layout_below="@+id/hourUp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_down" />
-
-
-        <TextView
-            android:id="@+id/hour"
-            android:layout_width="60dp"
-            android:layout_height="80dp"
-            android:layout_below="@+id/start_time"
-            android:layout_toEndOf="@+id/hourUp"
-            android:gravity="center"
-            android:text="시"
-            android:textColor="#000000"
-            android:textSize="50dp" />
-
-
-        <TextView
-            android:id="@+id/start_minute"
-            android:layout_width="60dp"
-            android:layout_height="80dp"
-            android:layout_below="@+id/start_time"
-            android:layout_toStartOf="@+id/minuteUp"
-            android:gravity="center"
-            android:text="10"
-            android:textColor="#000000"
-            android:textSize="50dp"
-            android:textStyle="bold" />
-
-        <ImageButton
-            android:id="@+id/minuteUp"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/divider"
-            android:layout_toStartOf="@+id/minute"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_up" />
-
-        <ImageButton
-            android:id="@+id/minuteDown"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignLeft="@+id/minuteUp"
-            android:layout_alignParentBottom="false"
-            android:layout_below="@+id/minuteUp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_down" />
-
-
-        <TextView
-            android:id="@+id/minute"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_alignParentBottom="false"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/divider"
-            android:layout_marginEnd="30dp"
-            android:gravity="center"
-            android:text="분"
-            android:textColor="#000000"
-            android:textSize="50dp" />
-
-        <TextView
-            android:id="@+id/end_time"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/hourDown"
-            android:layout_marginTop="20dp"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:padding="10dp"
-            android:text="종료 시간"
-            android:textSize="18dp" />
-
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentStart="false"
-            android:layout_below="@+id/end_time"
-            android:background="#000000" />
+            android:background="#FFFFFF"
+            android:orientation="vertical">
 
 
-        <TextView
-            android:id="@+id/end_hour"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_alignEnd="@+id/end_time"
-            android:layout_below="@+id/end_time"
-            android:layout_marginLeft="30dp"
-            android:gravity="center"
-            android:text="10"
-            android:textColor="#000000"
-            android:textSize="50dp"
-            android:textStyle="bold" />
-
-        <ImageButton
-            android:id="@+id/hourUp2"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/end_time"
-            android:layout_toEndOf="@+id/end_time"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_up" />
-
-        <ImageButton
-            android:id="@+id/hourDown2"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignLeft="@+id/hourUp2"
-            android:layout_alignParentBottom="false"
-            android:layout_below="@+id/hourUp2"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_down" />
+            <TextView
+                android:id="@+id/start_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="시작 날짜"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
 
-        <TextView
-            android:id="@+id/hour2"
-            android:layout_width="60dp"
-            android:layout_height="80dp"
-            android:layout_below="@+id/end_time"
-            android:layout_toEndOf="@+id/hourUp"
-            android:gravity="center"
-            android:text="시"
-            android:textColor="#000000"
-            android:textSize="50dp" />
+            <View
+                android:id="@+id/divider6"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentStart="false"
+                android:layout_below="@+id/start_date"
+                android:background="#000000" />
+
+            <TextView
+                android:id="@+id/start_year"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_below="@+id/start_date"
+                android:layout_toStartOf="@+id/yearUp"
+                android:gravity="center"
+                android:text="2017"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/yearUp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/start_date"
+                android:layout_toStartOf="@+id/year"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_up" />
+
+            <ImageButton
+                android:id="@+id/yearDown"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_alignBottom="@+id/start_year"
+                android:layout_alignStart="@+id/yearUp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_down" />
+
+            <TextView
+                android:id="@+id/year"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/start_date"
+                android:layout_marginRight="10dp"
+                android:layout_toStartOf="@+id/start_month"
+                android:gravity="center"
+                android:text="년"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/start_month"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/start_date"
+                android:layout_toStartOf="@+id/monthUp"
+                android:gravity="center"
+                android:text="8"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/monthUp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/start_date"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_up" />
+
+            <ImageButton
+                android:id="@+id/monthDown"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_alignBottom="@+id/start_year"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_down" />
+
+            <TextView
+                android:id="@+id/month"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_alignTop="@+id/divider6"
+                android:layout_toEndOf="@+id/monthDown"
+                android:gravity="center"
+                android:text="월"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/start_day"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_alignTop="@+id/divider6"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/month"
+                android:gravity="center"
+                android:text="13"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/dayUp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_alignTop="@+id/divider6"
+                android:layout_toEndOf="@+id/start_day"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_up" />
+
+            <ImageButton
+                android:id="@+id/dayDown"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_alignBottom="@+id/year"
+                android:layout_below="@id/dayUp"
+                android:layout_toEndOf="@+id/start_day"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_down" />
+
+            <TextView
+                android:id="@+id/day"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_alignTop="@+id/divider6"
+                android:layout_toEndOf="@+id/dayDown"
+                android:gravity="center"
+                android:text="일"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/start_year"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="시작 시간"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentStart="false"
+                android:layout_below="@+id/start_time"
+                android:background="#000000" />
+
+            <TextView
+                android:id="@+id/start_hour"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_alignEnd="@+id/start_time"
+                android:layout_below="@+id/start_time"
+                android:layout_marginLeft="30dp"
+                android:gravity="center"
+                android:text="10"
+                android:textColor="#000000"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/hourUp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/start_time"
+                android:layout_toEndOf="@+id/start_time"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_up" />
+
+            <ImageButton
+                android:id="@+id/hourDown"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_alignLeft="@+id/hourUp"
+                android:layout_alignParentBottom="false"
+                android:layout_below="@+id/hourUp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_down" />
 
 
-        <TextView
-            android:id="@+id/end_minute"
-            android:layout_width="60dp"
-            android:layout_height="80dp"
-            android:layout_alignStart="@+id/start_minute"
-            android:layout_below="@+id/end_time"
-            android:gravity="center"
-            android:text="10"
-            android:textColor="#000000"
-            android:textSize="50dp"
-            android:textStyle="bold" />
-
-        <ImageButton
-            android:id="@+id/minuteUp2"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/divider2"
-            android:layout_toStartOf="@+id/minute2"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_up" />
-
-        <ImageButton
-            android:id="@+id/minuteDown2"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignLeft="@+id/minuteUp2"
-            android:layout_alignParentBottom="false"
-            android:layout_below="@+id/minuteUp2"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_down" />
+            <TextView
+                android:id="@+id/hour"
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/start_time"
+                android:layout_toEndOf="@+id/hourUp"
+                android:gravity="center"
+                android:text="시"
+                android:textColor="#000000"
+                android:textSize="40dp" />
 
 
-        <TextView
-            android:id="@+id/minute2"
-            android:layout_width="60dp"
-            android:layout_height="80dp"
-            android:layout_below="@+id/end_time"
-            android:layout_toEndOf="@+id/minuteUp"
-            android:gravity="center"
-            android:text="분"
-            android:textColor="#000000"
-            android:textSize="50dp" />
+            <TextView
+                android:id="@+id/start_minute"
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/start_time"
+                android:layout_toStartOf="@+id/minuteUp"
+                android:gravity="center"
+                android:text="10"
+                android:textColor="#000000"
+                android:textSize="40dp"
+                android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/time_ok"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="false"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/minuteDown2"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/btn_ok" />
+            <ImageButton
+                android:id="@+id/minuteUp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/divider"
+                android:layout_toStartOf="@+id/minute"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_up" />
 
-    </RelativeLayout>
+            <ImageButton
+                android:id="@+id/minuteDown"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_alignLeft="@+id/minuteUp"
+                android:layout_alignParentBottom="false"
+                android:layout_below="@+id/minuteUp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_down" />
+
+
+            <TextView
+                android:id="@+id/minute"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/divider"
+                android:layout_marginEnd="30dp"
+                android:gravity="center"
+                android:text="분"
+                android:textColor="#000000"
+                android:textSize="40dp" />
+
+            <TextView
+                android:id="@+id/end_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="false"
+                android:layout_below="@+id/start_hour"
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:text="종료 날짜"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider7"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentStart="false"
+                android:layout_below="@+id/end_date"
+                android:background="#000000" />
+
+            <TextView
+                android:id="@+id/end_year"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_below="@+id/end_date"
+                android:layout_toStartOf="@+id/yearUp2"
+                android:gravity="center"
+                android:text="2017"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/yearUp2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/end_date"
+                android:layout_toEndOf="@+id/start_date"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_up" />
+
+            <ImageButton
+                android:id="@+id/yearDown2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_alignBottom="@+id/end_year"
+                android:layout_toEndOf="@+id/start_date"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_down" />
+
+            <TextView
+                android:id="@+id/year2"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/end_date"
+                android:layout_marginRight="10dp"
+                android:layout_toStartOf="@+id/start_month"
+                android:gravity="center"
+                android:text="년"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/end_month"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_alignStart="@+id/start_month"
+                android:layout_below="@+id/end_date"
+                android:gravity="center"
+                android:text="8"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/monthUp2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/end_date"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_up" />
+
+            <ImageButton
+                android:id="@+id/monthDown2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/yearUp2"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_down" />
+
+            <TextView
+                android:id="@+id/month2"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_alignTop="@+id/divider7"
+                android:layout_toEndOf="@+id/monthDown2"
+                android:gravity="center"
+                android:text="월"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/end_day"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_alignTop="@+id/divider7"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/month2"
+                android:gravity="center"
+                android:text="13"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/dayUp2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_alignTop="@+id/divider7"
+                android:layout_toEndOf="@+id/end_day"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_up" />
+
+            <ImageButton
+                android:id="@+id/dayDown2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_alignBottom="@+id/year2"
+                android:layout_below="@id/dayUp2"
+                android:layout_toEndOf="@+id/end_day"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_down" />
+
+            <TextView
+                android:id="@+id/day2"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_alignTop="@+id/divider7"
+                android:layout_toEndOf="@+id/dayDown2"
+                android:gravity="center"
+                android:text="일"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/end_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/end_year"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="종료 시간"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentStart="false"
+                android:layout_below="@+id/end_time"
+                android:background="#000000" />
+
+
+            <TextView
+                android:id="@+id/end_hour"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_alignEnd="@+id/end_time"
+                android:layout_below="@+id/end_time"
+                android:layout_marginLeft="30dp"
+                android:gravity="center"
+                android:text="10"
+                android:textColor="#000000"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/hourUp2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/end_time"
+                android:layout_toEndOf="@+id/end_time"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_up" />
+
+            <ImageButton
+                android:id="@+id/hourDown2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_alignLeft="@+id/hourUp2"
+                android:layout_alignParentBottom="false"
+                android:layout_below="@+id/hourUp2"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_down" />
+
+
+            <TextView
+                android:id="@+id/hour2"
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/end_time"
+                android:layout_toEndOf="@+id/hourUp"
+                android:gravity="center"
+                android:text="시"
+                android:textColor="#000000"
+                android:textSize="40dp" />
+
+
+            <TextView
+                android:id="@+id/end_minute"
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:layout_alignStart="@+id/start_minute"
+                android:layout_below="@+id/end_time"
+                android:gravity="center"
+                android:text="10"
+                android:textColor="#000000"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/minuteUp2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/end_time"
+                android:layout_toEndOf="@+id/start_day"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_up" />
+
+            <ImageButton
+                android:id="@+id/minuteDown2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_alignLeft="@+id/minuteUp2"
+                android:layout_alignParentBottom="false"
+                android:layout_below="@+id/minuteUp2"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_down" />
+
+
+            <TextView
+                android:id="@+id/minute2"
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/end_time"
+                android:layout_toEndOf="@+id/minuteUp"
+                android:gravity="center"
+                android:text="분"
+                android:textColor="#000000"
+                android:textSize="40dp" />
+
+            <ImageButton
+                android:id="@+id/time_ok"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/minuteDown2"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/btn_ok" />
+
+
+        </RelativeLayout>
+    </ScrollView>
 
 
 </LinearLayout>
