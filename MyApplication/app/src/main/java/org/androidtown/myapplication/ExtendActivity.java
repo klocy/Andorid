@@ -25,8 +25,13 @@ public class ExtendActivity extends AppCompatActivity {
     Calendar cal= Calendar.getInstance();
     int hour = cal.get(Calendar.HOUR_OF_DAY);//현재 시
     int minute = cal.get(Calendar.MINUTE);//현재 분
+    int year = cal.get(Calendar.YEAR);
+    int month  = cal.get(Calendar.MONTH)+1;
+    int date = cal.get(Calendar.DATE);
+
 
     int time[] = {hour,minute,hour,minute}; //시작시, 시작분, 종료시, 종료분
+    int day[]={year,month,date,year,month,date};
 
 
     @Override
@@ -48,10 +53,26 @@ public class ExtendActivity extends AppCompatActivity {
 
         ImageButton btn = (ImageButton) findViewById(R.id.extend);
 
+        //날짜버튼
+        ImageButton yearUp = (ImageButton)findViewById(R.id.yearUp_e);
+        ImageButton yearDown = (ImageButton)findViewById(R.id.yearDown_e);
+        ImageButton monthUp  = (ImageButton)findViewById(R.id.monthUp_e);
+        ImageButton monthDown = (ImageButton)findViewById(R.id.monthDown_e);
+        ImageButton dateUp = (ImageButton)findViewById(R.id.dayUp_e);
+        ImageButton dateDown = (ImageButton)findViewById(R.id.dayDown_e);
+
+        //시간
         ImageButton hourUp = (ImageButton) findViewById(R.id.hourUp_e);
         ImageButton hourDown = (ImageButton) findViewById(R.id.hourDown_e);
         ImageButton minuteUp = (ImageButton) findViewById(R.id.minuteUp_e);
         ImageButton minuteDown = (ImageButton) findViewById(R.id.minuteDown_e);
+
+        final TextView year1, month1, date1;
+
+
+        year1 =findViewById(R.id.extend_year);
+        month1 = findViewById(R.id.extend_month);
+        date1 =findViewById(R.id.extend_day);
 
         final TextView eHour = (TextView) findViewById(R.id.extend_hour);
         final TextView eMinute = (TextView) findViewById(R.id.extend_minute);
@@ -69,6 +90,49 @@ public class ExtendActivity extends AppCompatActivity {
 
         eHour.setText(h);
         eMinute.setText(m);
+
+
+        yearUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                day[3] = setYear(year1,1);
+            }
+        });
+
+        yearDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                day[3] = setYear(year1,-1);
+            }
+        });
+
+        monthUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                day[4] = setMonth(month1,1);
+            }
+        });
+
+        monthDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                day[4] = setMonth(month1,-1);
+            }
+        });
+
+        dateUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                day[5] = setDate(date1,1);
+            }
+        });
+
+        dateDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                day[5] = setDate(date1,-1);
+            }
+        });
 
 
         hourUp.setOnClickListener(new View.OnClickListener() {
@@ -189,6 +253,43 @@ public class ExtendActivity extends AppCompatActivity {
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public int setMonth(TextView text, int num){
+        int mon = Integer.valueOf((String)text.getText());
+        mon = (mon)%12;
+        mon=mon+num;
+        if(mon<1) mon+=12;
+
+
+        text.setText(String.valueOf(mon));
+
+        return mon;
+    }
+
+    public int setYear(TextView text, int num){
+        int yea = Integer.valueOf((String)text.getText());
+        yea= (yea+num)%10000;
+
+        text.setText(String.valueOf(yea));
+        return yea;
+    }
+
+    public int setDate(TextView text, int num){
+        int dat = Integer.valueOf((String)text.getText());
+        int x = 31;
+        int mon = day[4];
+
+        if(mon==4|mon==6|mon==9|mon==11) x--;
+        if(mon==2) x=28;
+
+        dat=dat%x;
+        dat=dat+num;
+
+        if(dat<1) dat=dat+x;
+
+        text.setText(String.valueOf(dat));
+        return dat;
     }
 
 
