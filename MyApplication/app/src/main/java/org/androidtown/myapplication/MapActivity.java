@@ -10,19 +10,47 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMapOptions;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 
 //3
-public class MapActivity extends AppCompatActivity {
+public class MapActivity extends AppCompatActivity implements OnMapReadyCallback{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+<<<<<<< HEAD
+        SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+    }
+
+    @Override
+    public void onMapReady(GoogleMap map){
+        LatLng sydney = new LatLng(37.555744, 126.970431);
+        map.addMarker(new MarkerOptions().position(sydney).title("Sydney"));
+        map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        CameraUpdate zoom = CameraUpdateFactory.zoomTo(15);
+        map.animateCamera(zoom);
+
+        //marker표시
+        MarkerOptions marker = new MarkerOptions();
+        marker.position(new LatLng(37.555744, 126.970431))
+                .title("서울역")
+                .snippet("Seoul Station");
+        map.addMarker(marker).showInfoWindow();
+=======
 
 
         //-------------------툴바--------------------
@@ -38,6 +66,7 @@ public class MapActivity extends AppCompatActivity {
 
 
 
+>>>>>>> origin/master
     }
 
         /*
