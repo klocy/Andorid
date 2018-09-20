@@ -3,6 +3,7 @@ package org.androidtown.myapplication;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.ActionBar;
@@ -28,10 +29,18 @@ public class TimeActivity extends AppCompatActivity {
     Calendar cal= Calendar.getInstance();
     int hour = cal.get(Calendar.HOUR_OF_DAY);//현재 시
     int minute = cal.get(Calendar.MINUTE);//현재 분
+    int year = cal.get(Calendar.YEAR);
+    int month  = cal.get(Calendar.MONTH)+1;
+    int date = cal.get(Calendar.DATE);
+
     String h= String.valueOf(hour),m= String.valueOf(minute);
 
     int time[] = {hour,minute,hour,minute}; //시작시, 시작분, 종료시, 종료분
+    int day[]={year,month,date,year,month,date};
 
+    TextView sYear, sMonth, sDay, eYear,eMonth,eDay;
+
+    final int start = 1, end =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,17 +58,35 @@ public class TimeActivity extends AppCompatActivity {
         //------------------------------
 
 
+
+        //시작날짜 버튼
+        ImageButton syear_up = findViewById(R.id.yearUp);
+        ImageButton syear_down = findViewById(R.id.yearDown);
+        ImageButton smonth_up = findViewById(R.id.monthUp);
+        ImageButton smonth_down = findViewById(R.id.monthDown);
+        ImageButton sdate_up = findViewById(R.id.dayUp);
+        ImageButton sdate_down  = findViewById(R.id.dayDown);
+
         //시작시간 버튼
         ImageButton shour_up = (ImageButton) findViewById(R.id.hourUp);
         ImageButton shour_down = (ImageButton) findViewById(R.id.hourDown);
         ImageButton sminute_up = (ImageButton) findViewById(R.id.minuteUp);
         ImageButton sminute_down = (ImageButton) findViewById(R.id.minuteDown);
 
+        //종료 날짜 버튼
+        ImageButton eyear_up = findViewById(R.id.yearUp2);
+        ImageButton eyear_down = findViewById(R.id.yearDown2);
+        ImageButton emonth_up = findViewById(R.id.monthUp2);
+        ImageButton emonth_down = findViewById(R.id.monthDown2);
+        ImageButton edate_up = findViewById(R.id.dayUp2);
+        ImageButton edate_down  = findViewById(R.id.dayDown2);
+
         //종료시간 버튼
         ImageButton ehour_up = (ImageButton) findViewById(R.id.hourUp2);
         ImageButton ehour_down = (ImageButton) findViewById(R.id.hourDown2);
         ImageButton eminute_up = (ImageButton) findViewById(R.id.minuteUp2);
         ImageButton eminute_down = (ImageButton) findViewById(R.id.minuteDown2);
+
 
         ImageButton btn_ok = (ImageButton) findViewById(R.id.time_ok);
 
@@ -127,6 +154,96 @@ public class TimeActivity extends AppCompatActivity {
             }
         });
 
+        //-----------날짜 설정 --------------
+       sYear= findViewById(R.id.start_year);
+       sMonth= findViewById(R.id.start_month);
+       sDay= findViewById(R.id.start_day);
+       eYear= findViewById(R.id.end_year);
+       eMonth= findViewById(R.id.end_month);
+       eDay= findViewById(R.id.end_day);
+
+
+        sYear.setText(String.valueOf(year));
+        sMonth.setText(String.valueOf(month));
+        sDay.setText(String.valueOf(date));
+        eYear.setText(String.valueOf(year));
+        eMonth.setText(String.valueOf(month));
+        eDay.setText(String.valueOf(date));
+
+
+        //시작 년 증감
+        syear_up.setOnClickListener(new View.OnClickListener(){
+            public  void onClick(View v){
+             day[0]= setYear(sYear,1);
+            }
+        });
+        syear_down.setOnClickListener(new View.OnClickListener(){
+            public  void onClick(View v){
+                day[0]= setYear(sYear,-1);
+            }
+        });
+
+        //종료 년 증감
+        eyear_up.setOnClickListener(new View.OnClickListener(){
+            public  void onClick(View v){
+                day[3]= setYear(eYear,1);
+            }
+        });
+        eyear_down.setOnClickListener(new View.OnClickListener(){
+            public  void onClick(View v){
+                day[3]= setYear(eYear,-1);
+            }
+        });
+
+        //시작 월 증감
+        smonth_up.setOnClickListener(new View.OnClickListener(){
+            public  void onClick(View v){
+                day[1]= setMonth(sMonth,1);
+            }
+        });
+        smonth_down.setOnClickListener(new View.OnClickListener(){
+            public  void onClick(View v){
+                day[1]= setMonth(sMonth,-1);
+            }
+        });
+
+        //종료 월 증감
+        emonth_up.setOnClickListener(new View.OnClickListener(){
+            public  void onClick(View v){
+                day[4]= setMonth(eMonth,1);
+            }
+        });
+        emonth_down.setOnClickListener(new View.OnClickListener(){
+            public  void onClick(View v){
+                day[4]= setMonth(eMonth,-1);
+            }
+        });
+
+        //시작 일 증감
+        sdate_up.setOnClickListener(new View.OnClickListener(){
+            public  void onClick(View v){
+                day[2]= setDate(sDay,1,start);
+            }
+        });
+        sdate_down.setOnClickListener(new View.OnClickListener(){
+            public  void onClick(View v){
+                day[2]= setDate(sDay,-1,start);
+            }
+        });
+
+        //종료 일 증감
+        edate_up.setOnClickListener(new View.OnClickListener(){
+            public  void onClick(View v){
+                day[5]= setDate(eDay,1,end);
+            }
+        });
+        edate_down.setOnClickListener(new View.OnClickListener(){
+            public  void onClick(View v){
+                day[5]= setDate(eDay,-1,end);
+            }
+        });
+
+
 
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,6 +291,44 @@ public class TimeActivity extends AppCompatActivity {
         text.setText(t);
 
         return time;
+    }
+
+    public int setMonth(TextView text, int num){
+        int mon = Integer.valueOf((String)text.getText());
+        mon = (mon)%12;
+        mon=mon+num;
+        if(mon<1) mon+=12;
+
+
+        text.setText(String.valueOf(mon));
+
+        return mon;
+    }
+
+    public int setYear(TextView text, int num){
+        int yea = Integer.valueOf((String)text.getText());
+        yea= (yea+num)%10000;
+
+        text.setText(String.valueOf(yea));
+        return yea;
+    }
+
+    public int setDate(TextView text, int num, int t){
+        int dat = Integer.valueOf((String)text.getText());
+        int x = 31;
+        int mon = day[1];
+        if(t!=start) mon=day[4];
+
+        if(mon==4|mon==6|mon==9|mon==11) x--;
+        if(mon==2) x=28;
+
+        dat=dat%x;
+        dat=dat+num;
+
+        if(dat<1) dat=dat+x;
+
+        text.setText(String.valueOf(dat));
+        return dat;
     }
 
 

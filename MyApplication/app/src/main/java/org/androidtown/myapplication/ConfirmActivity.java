@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Fragment;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,7 +26,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+<<<<<<< HEAD
 import android.widget.RelativeLayout;
+=======
+import android.widget.ImageButton;
+>>>>>>> origin/master
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
@@ -46,11 +51,19 @@ import java.util.List;
 import java.util.Locale;
 
 //3-1
+<<<<<<< HEAD
 public class ConfirmActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     TextView confrimeT, date, bn;
     Button change, cancel;
     Calendar cal = Calendar.getInstance();
+=======
+public class ConfirmActivity extends AppCompatActivity {
+    final Context context = this;
+    TextView confrimeT, date, bn ;
+    ImageButton change, cancel;
+    Calendar cal=Calendar.getInstance();
+>>>>>>> origin/master
     protected String bookingCode;
     private MapView mapView = null;
 
@@ -85,12 +98,18 @@ public class ConfirmActivity extends AppCompatActivity implements OnMapReadyCall
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+<<<<<<< HEAD
+=======
+        //----------툴바------------
+>>>>>>> origin/master
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
         actionBar.setDisplayShowTitleEnabled(false);
-        //-----------------------
+        actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
+        //actionBar.setHomeAsUpIndicator(R.drawable.ic_back); //뒤로가기 버튼을 본인이 만든 아이콘으로 하기 위해 필요
+        //------------------------
 
         Intent intent = getIntent();
         int time[] = intent.getIntArrayExtra("time"); //서버에서 시간가져오는것으로변경
@@ -121,12 +140,46 @@ public class ConfirmActivity extends AppCompatActivity implements OnMapReadyCall
         change.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                AlertDialog.Builder toMap = new AlertDialog.Builder(context);
+                toMap.setTitle("예약 변경");
+                toMap.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //예약내역삭제요청
+                        Intent main = new Intent(getApplicationContext(),TimeActivity.class); //MapActivity로변경하기
+                        startActivity(main);
+                        finish();
+                    }
+                });
+                toMap.setNegativeButton("No",null);
+                toMap.setMessage("기존 예약내역이 삭제됩니다.\n예약을 변경하시겠습니까?");
+                toMap.show();
+
             }
         });
 
 
+<<<<<<< HEAD
         cancel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+=======
+        cancel.setOnClickListener(new View.OnClickListener(){
+            public void  onClick(View v){
+                AlertDialog.Builder toMain = new AlertDialog.Builder(context);
+                toMain.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //예약내역 삭제요청
+                        Intent main = new Intent(getApplicationContext(),MainActivity.class);
+                        startActivity(main);
+                        finish();
+                    }
+                });
+                toMain.setNegativeButton("No",null);
+                toMain.setTitle("예약 삭제");
+                toMain.setMessage("예약이 삭제됩니다.\n삭제하시겠습니까?");
+                toMain.show();
+>>>>>>> origin/master
 
             }
         });

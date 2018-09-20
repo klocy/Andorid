@@ -13,7 +13,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimaryDark"
+        android:background="#00000000"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
@@ -23,6 +23,7 @@
             android:text="계정 관리"
             android:textStyle="bold"
             android:layout_gravity="center"
+            android:textColor="#FFFFFF"
             android:id="@+id/toolbar_title"
             android:textSize="20sp"/>
 
@@ -62,7 +63,6 @@
             android:layout_height="100dp"
             android:layout_gravity="end"
             style="?android:attr/borderlessButtonStyle"
-            android:onClick="onButton2Clicked"
             android:scaleType="center"
             app:srcCompat="@drawable/btn_create" />
     </LinearLayout>

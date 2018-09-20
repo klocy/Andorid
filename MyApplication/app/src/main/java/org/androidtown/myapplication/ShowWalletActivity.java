@@ -3,6 +3,7 @@ package org.androidtown.myapplication;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -11,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class ShowWalletActivity extends AppCompatActivity {
@@ -31,9 +33,9 @@ public class ShowWalletActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
         //actionBar.setHomeAsUpIndicator(R.drawable.ic_back); //뒤로가기 버튼을 본인이 만든 아이콘으로 하기 위해 필요
 
-        Button btn1 = (Button) findViewById(R.id.button_charge);
-        Button btn2 = (Button) findViewById(R.id.button_borrowhistory);
-        Button btn3 = (Button) findViewById(R.id.button_delete);
+        ImageButton btn1 = (ImageButton) findViewById(R.id.button_charge);
+        ImageButton btn2 = (ImageButton) findViewById(R.id.button_borrowhistory);
+        ImageButton btn3 = (ImageButton) findViewById(R.id.button_delete);
 
         btn1.setOnClickListener(new View.OnClickListener(){
             @Override
