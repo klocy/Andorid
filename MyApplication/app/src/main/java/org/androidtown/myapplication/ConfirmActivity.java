@@ -26,11 +26,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-<<<<<<< HEAD
 import android.widget.RelativeLayout;
-=======
 import android.widget.ImageButton;
->>>>>>> origin/master
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
@@ -51,19 +48,15 @@ import java.util.List;
 import java.util.Locale;
 
 //3-1
-<<<<<<< HEAD
+
 public class ConfirmActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     TextView confrimeT, date, bn;
-    Button change, cancel;
-    Calendar cal = Calendar.getInstance();
-=======
-public class ConfirmActivity extends AppCompatActivity {
-    final Context context = this;
-    TextView confrimeT, date, bn ;
     ImageButton change, cancel;
-    Calendar cal=Calendar.getInstance();
->>>>>>> origin/master
+    Calendar cal = Calendar.getInstance();
+
+    final Context context = this;
+
     protected String bookingCode;
     private MapView mapView = null;
 
@@ -98,10 +91,9 @@ public class ConfirmActivity extends AppCompatActivity {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-<<<<<<< HEAD
-=======
+
         //----------툴바------------
->>>>>>> origin/master
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -159,10 +151,8 @@ public class ConfirmActivity extends AppCompatActivity {
         });
 
 
-<<<<<<< HEAD
-        cancel.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-=======
+
+
         cancel.setOnClickListener(new View.OnClickListener(){
             public void  onClick(View v){
                 AlertDialog.Builder toMain = new AlertDialog.Builder(context);
@@ -179,7 +169,7 @@ public class ConfirmActivity extends AppCompatActivity {
                 toMain.setTitle("예약 삭제");
                 toMain.setMessage("예약이 삭제됩니다.\n삭제하시겠습니까?");
                 toMain.show();
->>>>>>> origin/master
+
 
             }
         });

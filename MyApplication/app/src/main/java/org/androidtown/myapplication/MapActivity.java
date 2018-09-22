@@ -30,7 +30,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-<<<<<<< HEAD
+
         SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
@@ -50,7 +50,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 .title("서울역")
                 .snippet("Seoul Station");
         map.addMarker(marker).showInfoWindow();
-=======
+
 
 
         //-------------------툴바--------------------
@@ -66,7 +66,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
 
 
->>>>>>> origin/master
     }
 
         /*
