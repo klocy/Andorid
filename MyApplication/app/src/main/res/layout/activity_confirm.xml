@@ -31,133 +31,132 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="96dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:lineSpacingExtra="15dip"
+        android:text="예약이 완료되었습니다.\n아래의 코드입력시 자전거 사용이 가능합니다."
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="17dp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
         <TextView
+            android:id="@+id/date"
+            android:layout_width="334dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="50dp"
+            android:padding="10dp"
+            android:text="예약 날짜"
+            android:textColor="#000000"
+            android:textSize="20dp" />
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="예약이 완료되었습니다.\n아래의 코드입력시 자전거 사용이 가능합니다."
-            android:textSize="17dp"
-            android:paddingTop="60dp"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:lineSpacingExtra="15dip"
-            android:paddingBottom="60dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:layout_gravity="center"
-            android:textAlignment="center"/>
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_calendar" />
 
-        <RelativeLayout
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/confrimeTime"
+            android:layout_width="334dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/date"
+            android:layout_marginStart="50dp"
+            android:padding="10dp"
+            android:text="예약 시간"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/date"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_clock" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/bookingNum"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/confrimeTime"
+            android:paddingTop="5dp"
+            android:text="예약 번호"
+            android:textColor="#000000"
+            android:textSize="25dp" />
+
+        <ImageButton
+            android:id="@+id/cancel_booking"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_alignTop="@+id/change_booking"
+            android:layout_marginRight="10dp"
+            android:layout_toStartOf="@+id/change_booking"
+            app:srcCompat="@drawable/btn_cancel" />
+
+        <ImageButton
+            android:id="@+id/change_booking"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/bookingNum"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/btn_change" />
+
+        <ImageButton
+            android:id="@+id/copyButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/cancel_booking"
+            android:layout_toEndOf="@+id/change_booking"
+            android:onClick="copy"
+            app:srcCompat="@drawable/btn_copy2" />
+
+        <fragment
+            android:id="@+id/map"
+            class="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#FFFFFF"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/date"
-                android:layout_width="334dp"
-                android:layout_height="50dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="50dp"
-                android:padding="10dp"
-                android:text="예약 날짜"
-                android:textColor="#000000"
-                android:textSize="20dp" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="fitCenter"
-                android:padding="5dp"
-                app:srcCompat="@drawable/ic_calendar" />
-
-            <View
-                android:id="@+id/divider"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
-
-            <TextView
-                android:id="@+id/confrimeTime"
-                android:layout_width="334dp"
-                android:layout_height="50dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/date"
-                android:layout_marginStart="50dp"
-                android:padding="10dp"
-                android:text="예약 시간"
-                android:textColor="#000000"
-                android:textSize="20dp" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/date"
-                android:padding="5dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/ic_clock" />
-
-            <View
-                android:id="@+id/divider2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
-
-            <TextView
-                android:id="@+id/bookingNum"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/confrimeTime"
-                android:paddingTop="5dp"
-                android:text="예약 번호"
-                android:textColor="#000000"
-                android:textSize="25dp" />
-
-            <ImageButton
-                android:id="@+id/cancel_booking"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                android:layout_alignTop="@+id/change_booking"
-                android:layout_toStartOf="@+id/change_booking"
-                android:layout_marginRight="10dp"
-                app:srcCompat="@drawable/btn_cancel" />
-
-            <ImageButton
-                android:id="@+id/change_booking"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                android:layout_below="@+id/bookingNum"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                app:srcCompat="@drawable/btn_change" />
-
-            <ImageButton
-                android:id="@+id/copyButton"
-                android:layout_marginLeft="10dp"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                android:layout_above="@+id/map"
-                android:layout_toEndOf="@+id/change_booking"
-                android:onClick="copy"
-                app:srcCompat="@drawable/btn_copy2" />
-
-            <fragment
-                android:id="@+id/map"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_alignParentBottom="true"
-                class="com.google.android.gms.maps.SupportMapFragment"/>
+            android:layout_below="@id/cancel_booking"
+            android:layout_margin="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
 
 
-
-        </RelativeLayout>
+    </RelativeLayout>
 
 </LinearLayout>

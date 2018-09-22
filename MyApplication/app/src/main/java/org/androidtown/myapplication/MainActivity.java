@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent  intent = new Intent(getApplicationContext(), ConfirmActivity.class);
                     startActivity(intent);
                 }else { //예약내역이 없는 경우
-                    Intent intent = new Intent(getApplicationContext(),TimeActivity.class);//날짜선택화면엑티비티로 변경하기
+                    Intent intent = new Intent(getApplicationContext(),MapActivity.class);//날짜선택화면엑티비티로 변경하기
                     startActivity(intent);
                 }
             }
