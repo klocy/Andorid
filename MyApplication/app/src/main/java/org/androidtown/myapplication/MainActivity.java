@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
                 booking=false; //서버에 요청해서 예약내역 확인하는것으로 변경
 
+                Log.e(TAG, "setOnClickListener in MainActivity, booking = " + booking);
 
                 if(booking){ //예약내역이 있는경우
                     Intent  intent = new Intent(getApplicationContext(), ConfirmActivity.class);
@@ -75,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){ //자전거 대여
 
                borrow = !borrow; //추후에 서버에서 대여 확인하는것으로 변경
+
+                Log.e(TAG, "setOnClickListener in MainActivity, borrow = " + borrow);
 
                 if(borrow) { //대여중인 경우
                     Intent intent = new Intent(getApplicationContext(), Borrow2Activity.class);

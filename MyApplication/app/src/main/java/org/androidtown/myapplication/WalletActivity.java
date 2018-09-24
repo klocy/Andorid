@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 public class WalletActivity extends AppCompatActivity {
 
+    private  String TAG = WalletActivity.class.getSimpleName();
     protected int c_wallet = 0;
     String wallet ;
     EditText input ;
@@ -46,6 +48,7 @@ public class WalletActivity extends AppCompatActivity {
 
                 //서버에 입력값을 보내 오류확인
                 c_wallet= 0;
+
 
                 switch (c_wallet){
                     case 0 : //계정생성

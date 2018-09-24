@@ -18,7 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        // 확인용
         <activity
             android:name=".WalletActivity"
             android:label="지갑주소입력" />
