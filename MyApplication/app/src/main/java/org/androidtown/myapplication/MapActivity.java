@@ -44,7 +44,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     double latitude;   //현재 자신의 위도
     double longitude;  //현재 자신의 경도
     private static final int MY_PERMISSION_REQUEST_LOCATION = 1;
-
+    String userLocation;
     //get city name
     public String hereLocation(double lat, double lon) {
         String curCity = "";
@@ -192,6 +192,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     public void onButton1Clicked(View v) {
         Intent intent = new Intent(getApplicationContext(), TimeActivity.class);
+
+        userLocation ="숙대입구 대여소"; //여기다가 선택된 대여소 위치 넣기
+
+        intent.putExtra("location",userLocation);
         startActivity(intent);
     }
 }

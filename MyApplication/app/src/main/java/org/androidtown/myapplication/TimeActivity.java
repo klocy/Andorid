@@ -34,11 +34,12 @@ public class TimeActivity extends AppCompatActivity {
     int date = cal.get(Calendar.DATE);
 
     String h= String.valueOf(hour),m= String.valueOf(minute);
+    String userlocation;
 
     int time[] = {hour,minute,hour,minute}; //시작시, 시작분, 종료시, 종료분
     int day[]={year,month,date,year,month,date};
 
-    TextView sYear, sMonth, sDay, eYear,eMonth,eDay;
+    TextView sYear, sMonth, sDay, eYear,eMonth,eDay, location;
 
     final int start = 1, end =0;
 
@@ -105,7 +106,17 @@ public class TimeActivity extends AppCompatActivity {
         final TextView ehour = (TextView) findViewById(R.id.end_hour);
         final TextView eminute = (TextView) findViewById(R.id.end_minute);
 
+
         ehour.setText(h);
+
+
+        time[2] = setTime(ehour, 1);
+
+        //나중에 수정하기---
+        boolean flag=false;
+        if(time[2]==0) flag=true;
+        //------------------
+
         eminute.setText(m);
 
 
@@ -168,6 +179,9 @@ public class TimeActivity extends AppCompatActivity {
         sDay.setText(String.valueOf(date));
         eYear.setText(String.valueOf(year));
         eMonth.setText(String.valueOf(month));
+
+
+        if(flag) date++;
         eDay.setText(String.valueOf(date));
 
 
@@ -243,6 +257,11 @@ public class TimeActivity extends AppCompatActivity {
             }
         });
 
+        //대여소 위치설정
+        location = findViewById(R.id.borrow_loaction);
+        Intent mapIntent = getIntent();
+        userlocation = mapIntent.getStringExtra("location");
+        location.setText(userlocation);
 
 
         btn_ok.setOnClickListener(new View.OnClickListener() {

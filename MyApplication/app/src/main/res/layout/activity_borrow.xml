@@ -79,8 +79,9 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="130dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/inputCode"
-            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_alignTop="@+id/borrow"
+            android:layout_toLeftOf="@+id/borrow"
             android:layout_gravity="center"
             app:srcCompat="@drawable/btn_paste" />
 

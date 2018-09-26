@@ -21,7 +21,7 @@ public class ChargeActivity extends AppCompatActivity {
     private TextView balance;
     private EditText input;
     private  String TAG = ChargeActivity.class.getSimpleName();
-    private double userBalance, chargeEth;
+    private double userBalance, chargeEth=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +46,17 @@ public class ChargeActivity extends AppCompatActivity {
         userBalance =135.24; //서버에서 가져오기
 
         balance.setText(String.valueOf(userBalance));
+
         btn1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+
+                if(input.getText().equals(null)){ //입력값이 null이 아니라면
                 chargeEth = Double.valueOf(String.valueOf(input.getText()));
-                Log.e(TAG, "setOnClickListener in ChargeActivity, chargeEth = "+input.getText() +"eth");
+                }
+
+                Log.e(TAG, "setOnClickListener in ChargeActivity, chargeEth = "+Double.valueOf(chargeEth) +"eth");
+
                 //서버에 충전요청
 
                 //수정해야할듯?
