@@ -1,6 +1,9 @@
 package org.androidtown.myapplication;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -29,6 +32,7 @@ public class BorrowActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_borrow);
 
+        final Context context = this;
         input= findViewById(R.id.inputCode);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -39,13 +43,14 @@ public class BorrowActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
         //actionBar.setHomeAsUpIndicator(R.drawable.ic_back); //뒤로가기 버튼을 본인이 만든 아이콘으로 하기 위해 필요
 
-        ImageButton btn = (ImageButton) findViewById(R.id.borrow);
+        ImageButton btn_borrow = (ImageButton) findViewById(R.id.borrow);
+        ImageButton btn_paste = (ImageButton) findViewById(R.id.paste);
 
         //서버에서 가져오는걸로 변경하기
         SharedPreferences pref = getSharedPreferences("Temp", Activity.MODE_PRIVATE);
         bookingCode = pref.getString("code","");
 
-        btn.setOnClickListener(new View.OnClickListener(){ //자전거 반납
+        btn_borrow.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
 
@@ -60,7 +65,18 @@ public class BorrowActivity extends AppCompatActivity {
             }
         });
 
+        btn_paste.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
 
+                ClipData clip = clipboardManager.getPrimaryClip();
+                ClipData.Item item = clip.getItemAt(0);//첫번째 데이터를 가져옴
+                TextView pastetext = (TextView)findViewById(R.id.inputCode);
+
+                pastetext.setText(item.getText());//텍스트뷰에 세팅해줌
+            }
+        });
     }
 
 

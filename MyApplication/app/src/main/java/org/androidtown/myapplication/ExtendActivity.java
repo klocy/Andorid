@@ -15,24 +15,31 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
 
 public class ExtendActivity extends AppCompatActivity {
-
+/*
     Calendar cal= Calendar.getInstance();
     int hour = cal.get(Calendar.HOUR_OF_DAY);//현재 시
     int minute = cal.get(Calendar.MINUTE);//현재 분
     int year = cal.get(Calendar.YEAR);
     int month  = cal.get(Calendar.MONTH)+1;
     int date = cal.get(Calendar.DATE);
-
+    // 예약 종료 시간 가져오기
 
     int time[] = {hour,minute,hour,minute}; //시작시, 시작분, 종료시, 종료분
     int day[]={year,month,date,year,month,date};
+*/
 
+    ImageButton btn;
+    RadioGroup rg;
+
+    int extend_h, extend_m;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +57,34 @@ public class ExtendActivity extends AppCompatActivity {
         //actionBar.setHomeAsUpIndicator(R.drawable.ic_back); //뒤로가기 버튼을 본인이 만든 아이콘으로 하기 위해 필요
         //---------------------툴바--------------------------
 
+        rg = (RadioGroup) findViewById(R.id.rdgroup);
+        btn = (ImageButton) findViewById(R.id.extend);
 
-        ImageButton btn = (ImageButton) findViewById(R.id.extend);
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId){
+                    case R.id.half :
+                        extend_h = 0;
+                        extend_m = 30;
+                        break;
+                    case R.id.one :
+                        extend_h = 1;
+                        extend_m = 0;
+                        break;
+                    case R.id.one_half :
+                        extend_h = 1;
+                        extend_m = 30;
+                        break;
+                    case R.id.two :
+                        extend_h = 2;
+                        extend_m = 0;
+                        break;
+                }
 
+            }
+        });
+/*
         //날짜버튼
         ImageButton yearUp = (ImageButton)findViewById(R.id.yearUp_e);
         ImageButton yearDown = (ImageButton)findViewById(R.id.yearDown_e);
@@ -181,13 +213,13 @@ public class ExtendActivity extends AppCompatActivity {
                 }/*else{
                     setResult(RESULT_CANCELED,intent);
                   //  finish();
-                }*/
+                }
             }
         });
 
-
+ */
     }
-
+/*
     public  int setTime(TextView text, int num){
         int time = Integer.valueOf((String)text.getText());
         int x=60;
@@ -292,5 +324,5 @@ public class ExtendActivity extends AppCompatActivity {
         return dat;
     }
 
-
+*/
 }

@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         booking=true;
         borrow=true;
 
+        // 예약 현황 서버에서 받아와서 보여주기
+
 
         ImageButton btn1 = (ImageButton) findViewById(R.id.create);
         ImageButton btn2 = (ImageButton) findViewById(R.id.book);

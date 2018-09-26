@@ -95,7 +95,7 @@ public class ShowWalletActivity extends AppCompatActivity {
                         alertDialogBuilder
                                 .setMessage("계정을 삭제하시겠습니까?")
                                 .setCancelable(false)
-                                .setPositiveButton("예",
+                                .setNegativeButton("예",
                                         new DialogInterface.OnClickListener() {
                                             public void onClick(
                                                     DialogInterface dialog, int id) {
@@ -105,7 +105,7 @@ public class ShowWalletActivity extends AppCompatActivity {
                                                 ShowWalletActivity.this.finish();
                                             }
                                         })
-                                .setNegativeButton("아니오",
+                                .setPositiveButton("아니오",
                                         new DialogInterface.OnClickListener() {
                                             public void onClick(
                                                     DialogInterface dialog, int id) { // 다이얼로그를 취소

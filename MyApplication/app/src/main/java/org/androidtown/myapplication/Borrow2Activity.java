@@ -10,7 +10,10 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -80,18 +83,29 @@ public class Borrow2Activity extends AppCompatActivity {
             public void onClick(View v) { //반납
 
                 AlertDialog.Builder toMain = new AlertDialog.Builder(context);
-                toMain.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                toMain.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //자전거 반납요청
-                        Toast.makeText(getApplicationContext(), "자전거 반납을 완료하였습니다.", Toast.LENGTH_LONG).show();
+
+                        LayoutInflater inflater = getLayoutInflater();
+                        View layout = inflater.inflate(R.layout.toast, (ViewGroup)findViewById(R.id.toast_custom));
+                        TextView tv_title=(TextView)layout.findViewById(R.id.textView1);
+                        tv_title.setText("사용해주셔서 감사합니다.");
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                        toast.setDuration(Toast.LENGTH_LONG);
+                        toast.setView(layout);
+                        toast.show();
+
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();
 
                     }
                 });
-                toMain.setNegativeButton("No",null);
+
+                toMain.setPositiveButton("No",null);
                 toMain.setTitle("자전거 반납");
                 toMain.setMessage("자전거를 반납하시겠습니까?");
                 toMain.show();
@@ -107,7 +121,7 @@ public class Borrow2Activity extends AppCompatActivity {
                 if(lock_flag){
 
                     AlertDialog.Builder toMain = new AlertDialog.Builder(context);
-                    toMain.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    toMain.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             //서버에 자전거 잠금해제
@@ -116,7 +130,7 @@ public class Borrow2Activity extends AppCompatActivity {
 
                         }
                     });
-                    toMain.setNegativeButton("No",null);
+                    toMain.setPositiveButton("No",null);
                     toMain.setTitle("자전거 잠금");
                     toMain.setMessage("자전거를 잠금을 해제합니다.\n계속하시겠습니까?");
                     toMain.show();
@@ -124,7 +138,7 @@ public class Borrow2Activity extends AppCompatActivity {
                 }else{
 
                 AlertDialog.Builder toMain = new AlertDialog.Builder(context);
-                toMain.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                toMain.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //서버에 자전거 잠금요청
@@ -133,7 +147,7 @@ public class Borrow2Activity extends AppCompatActivity {
 
                     }
                 });
-                toMain.setNegativeButton("No",null);
+                toMain.setPositiveButton("No",null);
                 toMain.setTitle("자전거 잠금");
                 toMain.setMessage("자전거를 잠금을 활성화합니다.\n계속하시겠습니까?");
                 toMain.show();
