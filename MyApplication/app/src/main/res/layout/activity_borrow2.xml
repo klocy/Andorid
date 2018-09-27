@@ -59,6 +59,7 @@
             android:padding="10dp"
             android:text="반납예정시간"
             android:textSize="18dp"
+            android:textColor="#000000"
             android:visibility="visible" />
 
         <ImageView
@@ -110,22 +111,26 @@
 
         <TextView
             android:id="@+id/end_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_below="@+id/textView2"
             android:layout_centerHorizontal="true"
             android:textSize="20dp"
+            android:gravity="center"
             android:textColor="#000000"
+            android:background="@drawable/border"
             android:layout_margin="10dp"
             android:text="종료날짜" />
 
         <TextView
             android:id="@+id/end"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/end_date"
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
+            android:gravity="center"
+            android:background="@drawable/border"
             android:text=" 12:00"
             android:textColor="#000000"
             android:textSize="30dp" />

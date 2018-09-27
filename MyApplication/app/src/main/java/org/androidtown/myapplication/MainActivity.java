@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -17,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
 
     private String TAG = MainActivity.class.getSimpleName();
 
+    private TextView borrow_detail;
+    private String detail; //예약 상세정보
+    LinearLayout lay;
+    final  int layout_vis =1, layout_invis=0;
     protected  boolean account, booking, borrow ;
 
     @Override
@@ -26,8 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
         //서버에서 확인하는것으로변경
         account=true;
-        booking=true;
+        booking=false;
         borrow=true;
+
+        Log.e(TAG, "onCreate in MainActivity, (account,booking,borrow) = ("+account+"," + booking+","+borrow+")");
 
         // 예약 현황 서버에서 받아와서 보여주기
 
@@ -36,6 +43,18 @@ public class MainActivity extends AppCompatActivity {
         ImageButton btn2 = (ImageButton) findViewById(R.id.book);
         ImageButton btn3 = (ImageButton) findViewById(R.id.rental);
 
+        lay = (LinearLayout) findViewById(R.id.layout); //예약정보를 담고있는 layout
+        borrow_detail = findViewById(R.id.reservation_detail);
+
+        if(booking){ //예약을 했다면 layout을 보이게함
+            setLayoutTrue(layout_vis);
+
+            //서버에서 예약정보 받아오기
+            detail= "2018년9월30일 17:30 ~ 2018년9월30일 18:30\n대여소 : 숙대입구역 대여소";
+
+            borrow_detail.setText(detail);
+
+        }
 
         btn1.setOnClickListener(new View.OnClickListener(){ //계정생성
             @Override
@@ -94,4 +113,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+
+        public void setLayoutTrue(int flag){
+
+        if(flag==1) lay.setVisibility(View.VISIBLE);
+        else lay.setVisibility(View.INVISIBLE);
+
+    }
     }
