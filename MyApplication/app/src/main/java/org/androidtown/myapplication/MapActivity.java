@@ -16,6 +16,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -193,9 +194,21 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public void onButton1Clicked(View v) {
         Intent intent = new Intent(getApplicationContext(), TimeActivity.class);
 
-        userLocation ="숙대입구 대여소"; //여기다가 선택된 대여소 위치 넣기
+        userLocation ="숙대입구 대여소"; //여기다가 선택된 대여소 위치 넣기 *수정
 
         intent.putExtra("location",userLocation);
         startActivity(intent);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

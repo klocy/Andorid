@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -55,11 +56,15 @@ public class Borrow2Activity extends AppCompatActivity {
         lock = findViewById(R.id.lock);
         lock.setVisibility(View.INVISIBLE);
 
-        //서버에서 예약시간 가져오기
+        //서버에서 예약시간 가져오기 *API
         SharedPreferences pref = getSharedPreferences("Temp", Activity.MODE_PRIVATE);
         end_hour = pref.getInt("hour", 0);
         end_minute = pref.getInt("minute", 0);
 
+        //서버에서 종료날짜 가져오기 *API
+        year="2018";
+        month="8";
+        date="13";
 
         h = String.valueOf(end_hour);
         m = String.valueOf(end_minute);
@@ -67,15 +72,9 @@ public class Borrow2Activity extends AppCompatActivity {
         if (end_minute < 10) m = 0 + m;
 
         endT = findViewById(R.id.end);
-        endT.setText(h + " : " + m);
+        endT.setText(year+"년 "+month+"월 "+date+"일\n"+h + " : " + m);
 
 
-        year="2018";
-        month="8";
-        date="13";
-
-        endD= findViewById(R.id.end_date);
-        endD.setText(year+"년 "+month+"월 "+date+"일");
 
 
         btn4.setOnClickListener(new View.OnClickListener() { //자전거 반납
@@ -86,7 +85,8 @@ public class Borrow2Activity extends AppCompatActivity {
                 toMain.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        //자전거 반납요청
+
+                        //서버에 자전거 반납요청 *API
 
                         LayoutInflater inflater = getLayoutInflater();
                         View layout = inflater.inflate(R.layout.toast, (ViewGroup)findViewById(R.id.toast_custom));
@@ -124,7 +124,9 @@ public class Borrow2Activity extends AppCompatActivity {
                     toMain.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            //서버에 자전거 잠금해제
+                            //서버에 자전거 일시정지 요청 *API
+
+                            //일시정지에 관한 코드 넣어야함 *수정
                             lock.setVisibility(View.INVISIBLE);
                             lock_flag=false;
 
@@ -141,7 +143,8 @@ public class Borrow2Activity extends AppCompatActivity {
                 toMain.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        //서버에 자전거 잠금요청
+                        //서버에 자전거 잠금요청 *API
+
                         lock.setVisibility(View.VISIBLE);
                         lock_flag=true;
 
@@ -181,9 +184,20 @@ public class Borrow2Activity extends AppCompatActivity {
              if (end_hour < 10) h = 0 + h;
              if (end_minute < 10) m = 0 + m;
 
-            endT.setText(h + " : " + m);
+            endT.setText(year+"년 "+month+"월 "+date+"일\n"+h + " : " + m);
 
         }}
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

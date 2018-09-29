@@ -41,9 +41,14 @@ public class ChargeActivity extends AppCompatActivity {
         balance=findViewById( R.id.walletBalance2);
         input = findViewById(R.id.charge);
 
+        Intent deIntent = getIntent();
+        double deEth = deIntent.getDoubleExtra("lack eth",0); //부족한 금액 기본값
+
+        if(deEth!=0) input.setText(String.valueOf(deEth)); //부족한금액이 있다면  부족한 금액을 넣어줌
+
         ImageButton btn1 = (ImageButton) findViewById(R.id.button_finish);
 
-        userBalance =135.24; //서버에서 가져오기
+        userBalance =135.24; //서버에서 가져오기 *API
 
         balance.setText(String.valueOf(userBalance));
 

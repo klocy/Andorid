@@ -125,7 +125,7 @@
                 android:layout_gravity="center"
                 android:layout_toEndOf="@+id/walletBalance1"
                 android:layout_weight="1"
-                android:gravity="right"
+                android:gravity="center"
                 android:hint="충전 금액"
                 android:inputType="numberDecimal"
                 android:textSize="18dp" />
