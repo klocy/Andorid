@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.androidtown.myapplication">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    // 인터넷을 사용하겠다는 권한을 줌
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    // 디바이스가 활성화 되지 않았을 때(켜져있지 않았을 때) 화면을 활성화
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    // 푸쉬가 올 때 진동이 발생
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -8,8 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -62,7 +66,9 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBM2hMKkhAy-uoMGnAH47SFPXlxpY5UWrI"/>
+
     </application>
+
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -73,4 +79,5 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="com.google.android.gsf.permission.READ_GSERVICES"/>
+
 </manifest>

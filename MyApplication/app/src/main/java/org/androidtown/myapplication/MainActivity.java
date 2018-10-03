@@ -1,18 +1,19 @@
 package org.androidtown.myapplication;
 
-import android.app.Activity;
+
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         Log.e(TAG, "onCreate in MainActivity, (account,booking,borrow) = ("+account+"," + booking+","+borrow+")");
 
         // 예약 현황 서버에서 받아와서 보여주기
-
 
         ImageButton btn1 = (ImageButton) findViewById(R.id.create);
         ImageButton btn2 = (ImageButton) findViewById(R.id.book);
@@ -120,4 +120,5 @@ public class MainActivity extends AppCompatActivity {
         else lay.setVisibility(View.INVISIBLE);
 
     }
-    }
+
+}

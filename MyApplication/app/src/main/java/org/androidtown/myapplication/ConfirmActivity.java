@@ -70,18 +70,18 @@ public class ConfirmActivity extends AppCompatActivity implements OnMapReadyCall
     public String hereLocation(double lat, double lon){
         String curCity = "";
         Geocoder geocoder = new Geocoder(ConfirmActivity.this, Locale.getDefault());
-       //GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().
+        //GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().
 
 
         try{
             List<Address> addressList = geocoder.getFromLocation(lat, lon,10);
-           // if(addressList.size() > 0){
-                curCity = addressList.get(0).getAddressLine(0);
+            // if(addressList.size() > 0){
+            curCity = addressList.get(0).getAddressLine(0);
             //}
         }catch(Exception e){
             e.printStackTrace();
         }
-       // Toast.makeText(ConfirmActivity.this,"주소:"+curCity,Toast.LENGTH_SHORT).show();
+        // Toast.makeText(ConfirmActivity.this,"주소:"+curCity,Toast.LENGTH_SHORT).show();
         return curCity;
     }
     @Override
@@ -119,7 +119,7 @@ public class ConfirmActivity extends AppCompatActivity implements OnMapReadyCall
         //Button
         change = findViewById(R.id.change_booking);
         cancel = findViewById(R.id.cancel_booking);
-        ok = findViewById(R.id.ok_booking);
+        //ok = findViewById(R.id.ok_booking);
 
         //지도
 
@@ -129,7 +129,9 @@ public class ConfirmActivity extends AppCompatActivity implements OnMapReadyCall
         confrimeT.setText(time[0] + " : " + time[1] + " ~ " + time[2] + " : " + time[3]); //수정하기 00
         date.setText(cal.get(Calendar.YEAR) + "년 " + cal.get(Calendar.MONTH) + "월 " + cal.get(Calendar.DATE) + "일");
 
+        /*
         ok.setOnClickListener(new View.OnClickListener() { //자전거 반납
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -137,6 +139,7 @@ public class ConfirmActivity extends AppCompatActivity implements OnMapReadyCall
                 finish();
             }
         });
+        */
 
         change.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -221,9 +224,9 @@ public class ConfirmActivity extends AppCompatActivity implements OnMapReadyCall
                     else{
                         Toast.makeText(ConfirmActivity.this, "도3희", Toast.LENGTH_SHORT).show();
                     }
-                  // double latitude = location.getLongitude();
-                  // String temp =  hereLocation(location.getLatitude(), location.getLongitude());
-                   //Toast.makeText(ConfirmActivity.this, "도희", Toast.LENGTH_SHORT).show();
+                    // double latitude = location.getLongitude();
+                    // String temp =  hereLocation(location.getLatitude(), location.getLongitude());
+                    //Toast.makeText(ConfirmActivity.this, "도희", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     e.printStackTrace();
                     Toast.makeText(ConfirmActivity.this, "---", Toast.LENGTH_SHORT).show();
@@ -234,37 +237,37 @@ public class ConfirmActivity extends AppCompatActivity implements OnMapReadyCall
 
     }
 
-        //권한 요청 후 응답 콜백
-        @Override
-        public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
-        {
-            switch(requestCode){
-                case MY_PERMISSION_REQUEST_LOCATION:{
-                    if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                        if(ContextCompat.checkSelfPermission(ConfirmActivity.this,
-                                Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-                            locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-                            Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                            try {
-                                hereLocation(location.getLatitude(), location.getLongitude());
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                                Toast.makeText(ConfirmActivity.this, "not found", Toast.LENGTH_SHORT).show();
-                            }
+    //권한 요청 후 응답 콜백
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
+    {
+        switch(requestCode){
+            case MY_PERMISSION_REQUEST_LOCATION:{
+                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    if(ContextCompat.checkSelfPermission(ConfirmActivity.this,
+                            Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+                        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+                        Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                        try {
+                            hereLocation(location.getLatitude(), location.getLongitude());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Toast.makeText(ConfirmActivity.this, "not found", Toast.LENGTH_SHORT).show();
                         }
-
-                    }else{
-                        Toast.makeText(this, "Mo permission granted", Toast.LENGTH_SHORT).show();
                     }
+
+                }else{
+                    Toast.makeText(this, "Mo permission granted", Toast.LENGTH_SHORT).show();
                 }
             }
         }
+    }
 
 
 
 
 
-        //Button btn = (Button)findViewById(R.id.homeButton);
+    //Button btn = (Button)findViewById(R.id.homeButton);
         /*btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
