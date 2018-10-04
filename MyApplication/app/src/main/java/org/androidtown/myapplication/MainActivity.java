@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         lay = (LinearLayout) findViewById(R.id.layout); //예약정보를 담고있는 layout
         borrow_detail = findViewById(R.id.reservation_detail);
 
-        if(booking){ //예약을 했다면 layout을 보이게함
+        if(true){ //예약을 했다면 layout을 보이게함
             setLayoutTrue(layout_vis);
 
             //서버에서 예약정보 받아오기
